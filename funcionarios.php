@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionários</title>
-    <link rel="stylesheet" href="assets/css/funcionario.css">
+    <link rel="stylesheet" href="assets/css/funcionarios.css">
 </head>
 
 <body>
 
-    <div class="botoes">
-        <a href="index.php">Iniciar</a>
-        <a href="funcionarios-listar.php">Listar</a>
 
-    </div>
     <div class="container">
         <h1>Cadastro de Funcionários</h1>
 

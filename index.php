@@ -6,11 +6,12 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
     body {
       height: 100vh;
-      background-image: url('assets/img/Oficina\ de\ Beleza\ Rita\ Junqueira.png'); /* coloque o caminho da sua imagem aqui */
+      background-image: url('assets/img/Fundo\ suave\ com\ brilhos\ delicados.png'); /* coloque o caminho da sua imagem aqui */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -20,10 +21,20 @@
       background-color: rgba(255, 255, 255, 0.9); /* leve transparência */
       border-radius: 15px;
     }
+    .titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  color: white;
+}
   </style>
 </head>
 
 <body class="d-flex justify-content-center align-items-center">
+
+
+<h1 class="titulo text-center mt-5 mb-4">
+  Oficina de Beleza <br> Rita Junqueira
+</h1>
 
   <div class="card card-login shadow-lg p-4" style="width: 350px;">
 

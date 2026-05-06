@@ -11,6 +11,7 @@
     <!-- Fonte do título -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
+
     <style>
         body {
             height: 100vh;
@@ -48,15 +49,9 @@
         <!-- FORMULÁRIO -->
         <div class="card card-login shadow-lg p-4" style="width: 350px;">
 
-            <h5 class="text-center mb-3">Entrar</h5>
 
+            <h5 class="text-center mb-3">Login</h5>
             <form>
-
-                <div class="mb-3">
-                    <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" placeholder="Seu nome" required>
-                </div>
-
                 <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" class="form-control" placeholder="Seu email" required>

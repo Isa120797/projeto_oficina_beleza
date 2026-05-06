@@ -13,8 +13,6 @@
     <?php require_once 'includes/header.php';
     ?>
 
-
-
     <div class="container">
         <h1>Cadastro de Funcionários</h1>
 

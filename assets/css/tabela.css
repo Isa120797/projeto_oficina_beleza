@@ -1,0 +1,115 @@
+/* CONTAINER (mantém padrão do seu projeto) */
+.container {
+    width: 95%;
+    margin: 20px auto;
+}
+
+/* TÍTULO */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+/* BARRA DE BUSCA */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.top-bar input {
+    width: 220px;
+    padding: 5px;
+    border: 1px solid #aaa;
+}
+
+.top-bar button {
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.top-bar button:hover {
+    background-color: #ddd;
+}
+
+
+
+/* TABELA */
+.tabela-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* CABEÇALHO */
+thead th {
+    text-align: left;
+    padding: 6px;
+    border-bottom: 2px solid #999;
+}
+
+/* LINHAS */
+tbody td {
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* EFEITO ZEBRADO */
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* HOVER */
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* AÇÕES */
+.acoes {
+    white-space: nowrap;
+}
+
+/* BOTÕES (ÍCONES) */
+.acoes a {
+    text-decoration: none;
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+/* CORES DOS ÍCONES */
+.acoes a:nth-child(1) {
+    color: #0066cc; /* visualizar */
+}
+
+.acoes a:nth-child(2) {
+    color: #cc7a00; /* editar */
+}
+
+.acoes a:nth-child(3) {
+    color: #2e8b57; /* status */
+}
+
+.btn-cadastrar {
+    margin-left: auto;
+    padding: 6px 12px;
+    background-color: #ff69b4; /* rosa */
+    color: white;
+    text-decoration: none;
+    border: 1px solid #ff69b4;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Efeito ao passar o mouse */
+.btn-cadastrar:hover {
+    background-color: #e0559f;
+    border-color: #e0559f;
+}

@@ -49,7 +49,7 @@
 
 
 </form>
-<button class="btn-submit">Cadastrar</button>
+  <input type="submit" value="Cadastrar">
 
 </div>
   

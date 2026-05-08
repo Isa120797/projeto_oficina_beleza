@@ -22,8 +22,8 @@
             </div>
 
             <div class="action-buttons">
-                <a href="funcionarios-cadastrar.php" class="btn">Cadastrar</a>
-                <a href="index.php" class="btn outline">Início</a>
+                <a href="funcionarios.php" class="btn">Cadastrar</a>
+                <a href="#" class="btn outline">Início</a>
             </div>
 
         </div>

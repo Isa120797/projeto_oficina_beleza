@@ -14,7 +14,7 @@
             <a href="#">
                 <li>Cadastrar Clientes</li>
             </a>
-            <a href="#">
+            <a href="funcionarios-lista.php">
                 <li>Funcionários</li>
             </a>
             <a href="#">

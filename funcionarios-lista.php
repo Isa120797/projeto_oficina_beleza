@@ -87,7 +87,7 @@ try {
                             <td><?php echo $funcionario['data_cadastro']; ?></td>
                             <td class="acoes">
 
-                                <a class="table-btn editar" href="editar-funcionario.php?id=<?php echo $funcionario['id']; ?>">Editar</a>
+                                <a class="table-btn editar" href="editar-funcionarios.php?id=<?php echo $funcionario['id']; ?>">Editar</a>
 
                                 <a href="#" class="table-btn status">Ativar/Inativar</a>
                             </td>

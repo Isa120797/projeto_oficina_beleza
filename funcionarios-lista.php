@@ -1,3 +1,38 @@
+<?php
+
+//conexao do PHP com o banco de dados MYSQL
+
+define('SERVIDOR', 'localhost');
+define('USUARIO', 'root');
+define('SENHA', '');
+define('BANCO', 'db_oficina_beleza');
+
+//string de conexao usando PDO
+try {
+    $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
+
+    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "SELECT * FROM tb_funcionario";
+
+    $comando = $conexao->prepare($sql);
+
+    $comando->execute();
+    // armazena em um array os funcionarios cadastrados no banco de dados
+
+    $funcionarios = $comando->fetchAll(PDO::FETCH_ASSOC);
+
+    // formata o código para exibição via var_dump
+    // echo "<pre>";
+    // var_dump($funcionarios);
+} catch (PDOException $erro) {
+
+    echo "Erro ao conectar no banco de dados" . $erro->getMessage();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,20 +74,28 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
+                <?php
+                foreach ($funcionarios as $funcionario):
+                ?>
 
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Maria Silva</td>
-                        <td>maria@email.com</td>
-                        <td>(11) 99999-9999</td>
-                        <td>01/01/2025</td>
-                        <td class="acoes">
-                            <a href="#" class="table-btn editar">Editar</a>
-                            <a href="#" class="table-btn status">Ativar/Inativar</a>
-                        </td>
-                    </tr>
-                </tbody>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $funcionario['id']; ?></td>
+                            <td><?php echo $funcionario['nome']; ?></td>
+                            <td><?php echo $funcionario['email']; ?></td>
+                            <td><?php echo $funcionario['telefone']; ?></td>
+                            <td><?php echo $funcionario['data_cadastro']; ?></td>
+                            <td class="acoes">
+
+                                <a class="table-btn editar" href="editar-funcionario.php?id=<?php echo $funcionario['id']; ?>">Editar</a>
+
+                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php
+                endforeach;
+                ?>
             </table>
         </div>
 

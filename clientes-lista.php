@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Clientes</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/funcionario/funcionario-lista.css">
+    <link rel="stylesheet" href="assets/css/funcionario/clientes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -32,32 +33,34 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                    <th>Nome</th>
-                    <th>Data Nasc.</th>
-                    <th>Cadastro</th>
-                    <th>Endereço</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                    <th>Ações</th>
+                        <th>Nome</th>
+                        <th>Data Nasc.</th>
+                        <th>Cadastro</th>
+                        <th>Endereço</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <td>1</td>
-                    <td>Maria Silva</td>
-                    <td>10/02/1995</td>
-                    <td>01/04/2026</td>
-                    <td>Rua A, 123</td>
-                    <td>maria@email.com</td>
-                    <td>(11) 99999-9999</td>
-                    <td>São Paulo</td>
-                    <td>SP</td>
+                        <td>Maria Silva</td>
+                        <td>10/02/1995</td>
+                        <td>01/04/2026</td>
+                        <td>Rua A, 123</td>
+                        <td>maria@email.com</td>
+                        <td>(11) 99999-9999</td>
+                        <td>São Paulo</td>
+                        <td>SP</td>
                         <td class="acoes">
                             <a href="#" class="table-btn editar">Editar</a>
-                            <a href="#" clas="table-btn vizualizar">Vizualizar</a>
+                            <a href="#" class="btn-visualizar">
+                                <i class="bi bi-eye"></i> 
+                            </a>
                             <a href="#" class="table-btn status">Ativar/Inativar</a>
                         </td>
                     </tr>
@@ -68,4 +71,3 @@
     </main>
 
 </body>
-

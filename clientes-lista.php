@@ -45,25 +45,36 @@
                     </tr>
                 </thead>
 
+
+
+                
                 <tbody>
+                     <?php
+            foreach($clientes as $cliente):
+                ?>
                     <tr>
-                        <td>1</td>
-                        <td>Maria Silva</td>
-                        <td>10/02/1995</td>
-                        <td>01/04/2026</td>
-                        <td>Rua A, 123</td>
-                        <td>maria@email.com</td>
-                        <td>(11) 99999-9999</td>
-                        <td>São Paulo</td>
-                        <td>SP</td>
+
+                       <td><?php echo $cliente['id'];?></td>
+                        <td><?php echo $cliente['nome'];?></td>
+                        <td><?php echo $cliente['data_nascimento'];?></td>
+                        <td><?php echo $cliente['data_cadastro'];?></td>
+                        <td><?php echo $cliente['endereco'];?></td>
+                        <td><?php echo $cliente['email'];?></td>
+                        <td><?php echo $cliente['telefone'];?></td>
+                        <td><?php echo $cliente['cidade'];?></td>
+                       <td><?php echo $cliente['estado'];?></td>
                         <td class="acoes">
-                            <a href="#" class="table-btn editar">Editar</a>
+                            <a class="table-btn " href="../Funcionario/editar-funcionario.php?id=<?php echo $cliente['id'];?>">Editar</a> 
                             <a href="#" class="btn-visualizar">
                                 <i class="bi bi-eye"></i> 
                             </a>
                             <a href="#" class="table-btn status">Ativar/Inativar</a>
                         </td>
                     </tr>
+                    <?php
+endforeach;
+?>
+
                 </tbody>
             </table>
         </div>

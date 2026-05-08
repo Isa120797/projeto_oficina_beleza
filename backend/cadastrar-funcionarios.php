@@ -33,7 +33,8 @@ try {
     $comando->execute();
 
     //exibe msg de sucesso
-    echo "Cadastro realizado com sucesso!";
+    // echo "Cadastro realizado com sucesso!";
+    header('Location:../funcionarios-lista.php');
 } catch (PDOException $erro) {
 
     echo "Erro ao conectar no banco de dados" . $erro->getMessage();

@@ -19,7 +19,7 @@
         <h1>Cadastro de Funcionários</h1>
 
 
-        <form action="backend/funcionarios-cadastrar.php" method="POST">
+        <form action="backend/cadastrar-funcionarios.php" method="POST">
             <div class="input-group">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome">

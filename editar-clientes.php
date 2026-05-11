@@ -24,7 +24,7 @@ $clientes = $comando->fetchAll(PDO::FETCH_ASSOC);
 // echo"<pre>";
 // var_dump($pizzas);
 
-
+ 
 
 }catch(PDOException $erro){
     echo "Erro ao conectar no banco de dados".$erro-> getMessage();
@@ -62,41 +62,41 @@ $clientes = $comando->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="input-group">
 <label>Data de nascimento</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="data_nascimento" id="data_nascimento" required>
+<input  value="<?php echo $clientes[0] ['data_nascimento'];?>"type="text" name="data_nascimento" id="data_nascimento" required>
 </div>
 
 <div class="input-group">
 <label>Data de Cadastro</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="data_cadastro" id="data_cadastro" required>
+<input  value="<?php echo $clientes[0] ['data_cadastro'];?>"type="text" name="data_cadastro" id="data_cadastro" required>
 </div>
 
 
 <div class="input-group">
 <label>Endereço</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="endereco" id="endereco" required>
+<input  value="<?php echo $clientes[0] ['endereco'];?>"type="text" name="endereco" id="endereco" required>
 </div>
 
 
 <div class="input-group">
 <label>Email</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="email" id="email" required>
+<input  value="<?php echo $clientes[0] ['email'];?>"type="text" name="email" id="email" required>
 </div>
 
 
 <div class="input-group">
 <label>Telefone</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="telefone" id="telefone" required>
+<input  value="<?php echo $clientes[0] ['telefone'];?>"type="text" name="telefone" id="telefone" required>
 </div>
 
 <div class="input-group">
 <label>Cidade</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="cidade" id="cidade" required>
+<input  value="<?php echo $clientes[0] ['cidade'];?>"type="text" name="cidade" id="cidade" required>
 </div>
 
 
 <div class="input-group">
 <label>Estado</label>
-<input  value="<?php echo $clientes[0] ['nome'];?>"type="text" name="estado" id="estado" required>
+<input  value="<?php echo $clientes[0] ['estado'];?>"type="text" name="estado" id="estado" required>
 </div>
 
 
@@ -105,7 +105,7 @@ $clientes = $comando->fetchAll(PDO::FETCH_ASSOC);
 
 
 </form>
-  <input type="submit" value="Cadastrar">
+  <input type="submit" value="Salvar">
 
 </div>
   

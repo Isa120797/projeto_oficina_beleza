@@ -5,7 +5,7 @@
             <a href="#">
                 <li>Dashboard</li>
             </a>
-            <a href="#">
+            <a href="clientes.php">
                 <li>Clientes</li>
             </a>
             <a href="#">

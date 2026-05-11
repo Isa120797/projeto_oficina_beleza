@@ -1,3 +1,38 @@
+
+<?php
+
+//conexao do PHP com o banco de dados MYSQL
+
+define('SERVIDOR', 'localhost');
+define('USUARIO', 'root');
+define('SENHA', '');
+define('BANCO', 'db_oficina_beleza');
+
+//string de conexao usando PDO
+try {
+    $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
+
+    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "SELECT * FROM tb_cliente";
+
+    $comando = $conexao->prepare($sql);
+
+    $comando->execute();
+    // armazena em um array os funcionarios cadastrados no banco de dados
+
+    $clientes = $comando->fetchAll(PDO::FETCH_ASSOC);
+
+    // formata o código para exibição via var_dump
+    // echo "<pre>";
+    // var_dump($funcionarios);
+} catch (PDOException $erro) {
+
+    echo "Erro ao conectar no banco de dados" . $erro->getMessage();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,7 +58,7 @@
             </div>
 
             <div class="action-buttons">
-                <a href="funcionarios.php" class="btn">Cadastrar</a>
+                <a href="clientes.php" class="btn">Cadastrar</a>
                 <a href="#" class="btn outline">Início</a>
             </div>
 
@@ -64,7 +99,7 @@
                         <td><?php echo $cliente['cidade'];?></td>
                        <td><?php echo $cliente['estado'];?></td>
                         <td class="acoes">
-                            <a class="table-btn " href="../Funcionario/editar-funcionario.php?id=<?php echo $cliente['id'];?>">Editar</a> 
+                            <a class="table-btn " href="editar-clientes.php?id=<?php echo $cliente['id'];?>">Editar</a> 
                             <a href="#" class="btn-visualizar">
                                 <i class="bi bi-eye"></i> 
                             </a>

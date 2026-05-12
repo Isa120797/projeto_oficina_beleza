@@ -33,6 +33,10 @@
       background-color: rgba(255, 255, 255, 0.9);
       border-radius: 15px;
     }
+    a{
+        color: white;
+        text-decoration: none;
+    }
   </style>
 </head>
 
@@ -48,20 +52,12 @@
     <!-- FORMULÁRIO -->
     <div class="card card-login shadow-lg p-4" style="width: 350px;">
 
-      <h5 class="text-center mb-3">Recuperar Senha</h5>
+      <h5 class="text-center mb-3">Enviado com Sucesso!</h5>
 
       <form action="backend/envio-email.php" method="POST">
 
-
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" id="email" class="form-control" placeholder="Seu email" required>
-        </div>
-
-
-
-        <button type="submit" class="btn btn-dark w-100">
-          Recuperar
+        <button class="btn btn-dark w-100"><a href="login.php"> Voltar</a>
+         
         </button>
 
       </form>

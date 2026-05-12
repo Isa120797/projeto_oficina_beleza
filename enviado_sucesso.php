@@ -33,9 +33,10 @@
       background-color: rgba(255, 255, 255, 0.9);
       border-radius: 15px;
     }
-    a{
-        color: white;
-        text-decoration: none;
+
+    a {
+      color: white;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -54,10 +55,10 @@
 
       <h5 class="text-center mb-3">Enviado com Sucesso!</h5>
 
-      <form action="backend/envio-email.php" method="POST">
+      <form>
 
         <button class="btn btn-dark w-100"><a href="login.php"> Voltar</a>
-         
+
         </button>
 
       </form>

@@ -27,7 +27,7 @@ try {
     $mail->CharSet      = 'UTF-8';                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('ooficinadebeleza@gmail.com', 'Isabela');
+    $mail->setFrom('ooficinadebeleza@gmail.com', 'Oficina de Beleza');
     $mail->addAddress($email);     //Add a recipient
   
    

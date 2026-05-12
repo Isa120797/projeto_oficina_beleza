@@ -5,13 +5,13 @@
             <a href="#">
                 <li>Dashboard</li>
             </a>
-            <a href="clientes.php">
+            <a href="clientes-lista.php">
                 <li>Clientes</li>
             </a>
             <a href="#">
                 <li>Agendamento</li>
             </a>
-            <a href="#">
+            <a href="clientes.php">
                 <li>Cadastrar Clientes</li>
             </a>
             <a href="funcionarios-lista.php">

@@ -8,7 +8,7 @@
             <a href="clientes-lista.php">
                 <li>Clientes</li>
             </a>
-            <a href="#">
+            <a href="agendamento-lista.php">
                 <li>Agendamento</li>
             </a>
             <a href="clientes.php">

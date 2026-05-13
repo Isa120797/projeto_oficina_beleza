@@ -13,16 +13,16 @@ try {
 
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $nome                   = $_POST['nome'];
+    $nome                           = $_POST['nome'];
     $data_nascimento                = $_POST['data_nascimento'];
-    $endereco                   = $_POST['endereco'];
-    $email                   = $_POST['email'];
-    $telefone        = $_POST['telefone'];
-    $cidade                    = $_POST['cidade'];
-    $estado                   = $_POST['estado'];
-    $data_cadastro             = $_POST['data_cadastro'];
-    $status           = $_POST['status'];
-    $id                     = $_GET['id'];
+    $endereco                       = $_POST['endereco'];
+    $email                          = $_POST['email'];
+    $telefone                       = $_POST['telefone'];
+    $cidade                         = $_POST['cidade'];
+    $estado                         = $_POST['estado'];
+    $data_cadastro                  = $_POST['data_cadastro'];
+    $status                         = $_POST['status'];
+    $id                             = $_GET['id'];
 
     $sql = "UPDATE tb_cliente SET nome= '$nome', data_nascimento='$data_nascimento', endereco='$endereco',email='$email',telefone='$telefone',cidade='$cidade',estado='$estado',data_cadastro='$data_cadastro', status= '$status' WHERE id= $id";
 

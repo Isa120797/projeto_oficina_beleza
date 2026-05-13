@@ -100,7 +100,7 @@ try {
                        <td><?php echo $cliente['estado'];?></td>
                         <td class="acoes">
                             <a class="table-btn " href="editar-clientes.php?id=<?php echo $cliente['id'];?>">Editar</a> 
-                            <a href="#" class="btn-visualizar">
+                            <a href="historico-clientes.php" class="btn-visualizar">
                                 <i class="bi bi-eye"></i> 
                             </a>
                             <a href="#" class="table-btn status">Ativar/Inativar</a>

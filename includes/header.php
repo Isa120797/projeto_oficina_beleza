@@ -17,7 +17,7 @@
             <a href="funcionarios-lista.php">
                 <li>Funcionários</li>
             </a>
-            <a href="#">
+            <a href="servicos-lista.php">
                 <li>Serviços</li>
             </a>
             <a href="#">

@@ -55,11 +55,9 @@
 
       <h5 class="text-center mb-3">Enviado com Sucesso!</h5>
 
-      <form>
+      <form action="login.php">
 
-        <button class="btn btn-dark w-100"><a href="login.php"> Voltar</a>
-
-        </button>
+        <button type="submit" class="btn btn-dark w-100"> Voltar </button>
 
       </form>
 

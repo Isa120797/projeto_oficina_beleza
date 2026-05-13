@@ -50,7 +50,7 @@
 
       <h5 class="text-center mb-3">Recuperar Senha</h5>
 
-      <form>
+      <form action="backend/envio-email.php" method="POST">
 
 
         <div class="mb-3">

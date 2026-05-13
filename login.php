@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="text-end mb-3">
-                    <a href="#" class="text-decoration-none">Esqueceu sua senha?</a>
+                    <a href="recuperar-senha.php" class="text-decoration-none">Esqueceu sua senha?</a>
                 </div>
 
                 <button type="submit" class="btn btn-dark w-100">

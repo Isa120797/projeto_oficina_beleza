@@ -23,14 +23,14 @@ try {
     $mail->Username   = 'ooficinadebeleza@gmail.com';                     //SMTP username
     $mail->Password   = 'vkml jojg ayvj ljiw';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
-    $mail->Port       = 587;    
+    $mail->Port       = 587;
     $mail->CharSet      = 'UTF-8';                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom('ooficinadebeleza@gmail.com', 'Oficina de Beleza');
     $mail->addAddress($email);     //Add a recipient
-  
-   
+
+
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
@@ -43,4 +43,3 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-?>

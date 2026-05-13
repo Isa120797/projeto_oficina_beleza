@@ -1,0 +1,122 @@
+@import url('../style.css');
+/* Container do formulário */
+.container {
+    max-width: 900px;
+    margin: 80px auto 40px auto; /* 👈 aumenta o espaço do topo */
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.15);
+}
+/* Título */
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #d63384;
+}
+
+/* Formulário em grid (igual seu padrão) */
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Cada grupo */
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campo que ocupa linha inteira (se quiser usar depois) */
+.input-group.full {
+    grid-column: span 2;
+}
+
+/* Labels */
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.input-group input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Foco */
+.input-group input:focus {
+    border-color: #d63384;
+    box-shadow: 0 0 5px rgba(214, 51, 132, 0.4);
+}
+
+/* Botão ocupa tudo */
+input[type="submit"] {
+    grid-column: span 2;
+    margin-top: 10px;
+    padding: 12px;
+    background: #d63384;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover */
+input[type="submit"]:hover {
+    background: #b0256b;
+    transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    input[type="submit"] {
+        grid-column: span 1;
+    }
+}
+
+/* TEXTAREA - Descrição */
+.input-group textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+    resize: none;
+    height: 42px; /* 👈 mesma altura dos inputs */
+    font-family: inherit;
+}
+
+/* Foco textarea */
+.input-group textarea:focus {
+    border-color: #d63384;
+    box-shadow: 0 0 5px rgba(214, 51, 132, 0.4);
+}
+
+/* SELECT - Categoria */
+.input-group select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Foco select */
+.input-group select:focus {
+    border-color: #d63384;
+    box-shadow: 0 0 5px rgba(214, 51, 132, 0.4);
+}

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 require_once 'backend/conexao.php';
 try {
@@ -19,7 +19,7 @@ try {
     // exibe a mensagem de erro
     echo "Não foi possivel buscar os dados";
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,7 +53,7 @@ try {
                             <th>Data do Atendimento</th>
                         </tr>
                     </thead>
-                    <?php
+                    <!-- <?php
                     foreach ($agendamentos as $agendamento):
                     ?>
                         <tbody>
@@ -85,7 +85,7 @@ try {
                     ?>
                 </table>
 
-            </div>
+            </div> -->
     </main>
 </body>
 

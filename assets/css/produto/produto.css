@@ -1,6 +1,6 @@
 /* Área superior (busca + botões) */
 .top-actions {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 30px auto;
     display: flex;
     justify-content: space-between;
@@ -47,12 +47,12 @@
     transform: translateY(-2px);
 }
 
-/* Botão buscar específico */
+/* Botão buscar */
 .btn.buscar {
     padding: 10px 15px;
 }
 
-/* Botão outline (Início) */
+/* Botão outline */
 .btn.outline {
     background: transparent;
     color: #d63384;
@@ -64,27 +64,26 @@
     color: white;
 }
 
-/* Grupo de botões da direita */
+/* Grupo de botões */
 .action-buttons {
     display: flex;
     gap: 10px;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .top-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .action-buttons {
-        justify-content: center;
-    }
+/* Título */
+.titulo-pagina {
+    text-align: center;
+    margin: 30px 0;
+    color: #d63384;
+    font-size: 28px;
+    font-weight: bold;
 }
+
 /* Container da tabela */
 .table-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 20px auto 40px auto;
+    overflow-x: auto; /* evita quebrar tabela */
 }
 
 /* Tabela */
@@ -107,6 +106,7 @@ table th {
     padding: 12px;
     text-align: left;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 /* Corpo */
@@ -114,6 +114,7 @@ table td {
     padding: 12px;
     border-bottom: 1px solid #eee;
     font-size: 14px;
+    white-space: nowrap; /* impede quebra da data */
 }
 
 /* Linhas alternadas */
@@ -127,13 +128,13 @@ table tbody tr:hover {
     transition: 0.2s;
 }
 
-/* Ações (botões editar / ativar) */
+/* Ações */
 .acoes {
     display: flex;
     gap: 8px;
 }
 
-/* Botões dentro da tabela */
+/* Botões da tabela */
 .table-btn {
     padding: 5px 10px;
     border-radius: 6px;
@@ -143,17 +144,16 @@ table tbody tr:hover {
     transition: 0.3s;
 }
 
-/* Editar */
+/* Botão editar */
 .table-btn.editar {
     background: #d63384;
 }
-
 
 .table-btn.editar:hover {
     background: #b0256b;
 }
 
-/* Ativar/Inativar */
+/* Botão status */
 .table-btn.status {
     background: #6c757d;
 }
@@ -164,6 +164,16 @@ table tbody tr:hover {
 
 /* Responsivo */
 @media (max-width: 768px) {
+
+    .top-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+
     table {
         font-size: 12px;
     }
@@ -172,11 +182,4 @@ table tbody tr:hover {
     table td {
         padding: 8px;
     }
-}
-.titulo-pagina {
-    text-align: center;
-    margin: 30px 0;
-    color: #d63384;
-    font-size: 28px;
-    font-weight: bold;
 }

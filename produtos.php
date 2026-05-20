@@ -20,12 +20,12 @@
         <form action="backend/cadastrar-produtos.php" method="POST">
             <div class="input-group">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome" required>
             </div>
 
             <div class="input-group">
                 <label for="marca">Marca</label>
-                <textarea name="marca" id="marca"></textarea>
+                <textarea name="marca" id="marca" required></textarea>
             </div>
             <div class="input-group">
                 <label for="categoria">Categoria</label>

@@ -20,7 +20,7 @@
             <a href="servicos-lista.php">
                 <li>Serviços</li>
             </a>
-            <a href="#">
+            <a href="produtos-lista.php">
                 <li>Produtos</li>
             </a>
             <a href="sair.php">

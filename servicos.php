@@ -20,7 +20,7 @@
         <form action="backend/cadastrar-servicos.php" method="POST">
             <div class="input-group">
                 <label for="nome_servico">Nome do Serviço</label>
-                <input type="text" name="nome_servico" id="nome_servico">
+                <input type="text" name="nome_servico" id="nome_servico" required>
             </div>
 
             <div class="input-group">
@@ -35,7 +35,7 @@
 
             <div class="input-group">
                 <label for="duracao">Duração</label>
-                <input type="text" name="duracao" id="duracao">
+                <input type="text" name="duracao" id="duracao" required>
             </div>
 
             <div class="input-group">

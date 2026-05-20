@@ -23,39 +23,39 @@
 
                 <div class="input-group">
                     <label>Nome</label>
-                    <input type="text" id="nome" name="nome">
+                    <input type="text" id="nome" name="nome" required>
                 </div>
 
                 <div class="input-group">
                     <label>Data de nascimento</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento">
+                    <input type="date" id="data_nascimento" name="data_nascimento" required>
                 </div>
 
                 <div class="input-group">
                     <label>Data de Cadastro</label>
-                    <input type="date" id="data_cadastro" name="data_cadastro">
+                    <input type="date" id="data_cadastro" name="data_cadastro" required>
                 </div>
 
                 <div class="input-group">
                     <label>Endereço</label>
-                    <input type="text" id="endereco" name="endereco">
+                    <input type="text" id="endereco" name="endereco" required>
                 </div>
 
                 <div class="input-group">
                     <label>E-mail</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="input-group">
                     <label>Telefone</label>
-                    <input type="number" id="telefone" name="telefone">
+                    <input type="number" id="telefone" name="telefone" required>
                 </div>
                 <div class="input-group">
                     <label>Cidade</label>
-                    <input type="text" id="cidade" name="cidade">
+                    <input type="text" id="cidade" name="cidade" required>
                 </div>
                 <div class="input-group">
                     <label>Estado</label>
-                    <input type="text" id="estado" name="estado">
+                    <input type="text" id="estado" name="estado" required>
                 </div>
 
             </div>

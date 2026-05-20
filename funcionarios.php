@@ -20,15 +20,15 @@
         <form action="backend/cadastrar-funcionarios.php" method="POST">
             <div class="input-group">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome" required>
             </div>
             <div class="input-group">
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
             </div>
             <div class="input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone">
+                <input type="text" name="telefone" id="telefone" required>
             </div>
 
             <input type="submit" value="Cadastrar">

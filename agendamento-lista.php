@@ -43,6 +43,11 @@ try {
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/funcionario/clientes.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        i{
+        
+        }
+    </style>
 </head>
 
 <body>
@@ -96,7 +101,7 @@ try {
                         <td><?php echo $agendamento['valor'];?></td>
                        
                         <td class="acoes">
-                            <a class="table-btn " href="editar-agendamento.php?id=<?php echo $agendamento['id'];?>">Editar</a> 
+                            <a class="table-btn editar " href="editar-agendamento.php?id=<?php echo $agendamento['id'];?>">Editar</a> 
                             <a href="#" class="btn-visualizar">
                                 <i class="bi bi-eye"></i> 
                             </a>

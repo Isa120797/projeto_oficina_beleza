@@ -2,7 +2,7 @@
     <p> Oficina de Beleza </p>
     <nav>
         <ul>
-            <a href="#">
+            <a href="dashboard.php">
                 <li>Dashboard</li>
             </a>
             <a href="clientes-lista.php">

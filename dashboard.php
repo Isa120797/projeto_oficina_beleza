@@ -317,14 +317,14 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="produtos-lista.php">
                     <i class="fa-solid fa-box"></i>
                     Produtos
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="pedidos.php">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Vendas
                 </a>

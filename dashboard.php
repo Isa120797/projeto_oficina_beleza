@@ -31,7 +31,7 @@
        .sidebar{
     width: 270px;
     height: 100vh;
-    background: linear-gradient(180deg, #d81b60, #ec407a);
+    background: linear-gradient(180deg, #d63384, #ec407a);
     position: fixed;
     left: 0;
     top: 0;
@@ -289,28 +289,28 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="clientes-lista.php">
                     <i class="fa-solid fa-users"></i>
                     Clientes
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="funcionarios-lista.php">
                     <i class="fa-solid fa-user-tie"></i>
                     Funcionários
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="agendamento-lista.php">
                     <i class="fa-solid fa-calendar-days"></i>
                     Agendamentos
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="servicos-lista.php">
                     <i class="fa-solid fa-scissors"></i>
                     Serviços
                 </a>

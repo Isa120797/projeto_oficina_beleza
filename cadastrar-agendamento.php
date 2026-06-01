@@ -1,3 +1,21 @@
+<?php
+require_once 'backend/funcoes.php';
+
+$clientes = listarCliente();
+
+$funcionarios = listarFuncionario();
+
+$servicos = listarServico();
+
+$agendamento = listarAgendamento();
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +23,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de agendamento</title>
-    <link rel="stylesheet" href="assets/css/funcionario/funcionario.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/cadastro-agendamento.css">
 </head>
 
 <body>
@@ -22,18 +41,35 @@
             <div class="form-grid">
 
                 <div class="input-group">
-                    <label>Cliente</label>
-                    <input type="text" id="cliente" name="cliente">
+                    <label for="id_cliente">Cliente</label>
+
+                    <select name="id_cliente" id="id_cliente" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <?php foreach ($clientes as $cliente): ?>
+                            <option value="<?php echo $cliente['id']; ?>"><?php echo $cliente['nome']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
+
 
                 <div class="input-group">
                     <label>Funcionário</label>
-                    <input type="text" id="funcionario" name="funcionario">
+                    <select name="id_funcionario" id="id_funcionario" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <?php foreach ($funcionarios as $funcionario): ?>
+                            <option value="<?php echo $funcionario['id']; ?>"><?php echo $funcionario['nome']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 <div class="input-group">
                     <label>Serviço</label>
-                    <input type="text" id="servico" name="servico">
+                    <select name="id_servico" id="id_servico" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <?php foreach ($servicos as $servico): ?>
+                            <option value="<?php echo $servico['id']; ?>"><?php echo $servico['nome_servico']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 <div class="input-group">
@@ -47,9 +83,9 @@
                 </div>
                 <div class="input-group">
                     <label>Valor Total</label>
-                    <input type="number"  step="0.01" id="valor" name="valor">
+                    <input type="number" step="0.01" id="valor" name="valor">
                 </div>
-              
+
             </div>
 
 

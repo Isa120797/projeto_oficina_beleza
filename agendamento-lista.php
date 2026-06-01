@@ -1,4 +1,3 @@
-
 <?php
 
 //conexao do PHP com o banco de dados MYSQL
@@ -30,6 +29,8 @@ try {
 
     echo "Erro ao conectar no banco de dados" . $erro->getMessage();
 }
+// require_once 'backend/funcoes.php';
+// $agendamento = listarAgendamento();
 
 ?>
 
@@ -44,9 +45,7 @@ try {
     <link rel="stylesheet" href="assets/css/funcionario/clientes.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-        i{
-        
-        }
+        i {}
     </style>
 </head>
 
@@ -85,32 +84,32 @@ try {
 
 
 
-                
-                <tbody>
-                     <?php
-            foreach($agendamentos as $agendamento):
-                ?>
-                    <tr>
 
-                       <td><?php echo  $agendamento['id'];?></td>
-                        <td><?php echo $agendamento['cliente'];?></td>
-                        <td><?php echo $agendamento['funcionario'];?></td>
-                        <td><?php echo $agendamento['servico'];?></td>
-                        <td><?php echo $agendamento['data'];?></td>
-                        <td><?php echo $agendamento['hora'];?></td>
-                        <td><?php echo $agendamento['valor'];?></td>
-                       
-                        <td class="acoes">
-                            <a class="table-btn editar " href="editar-agendamento.php?id=<?php echo $agendamento['id'];?>">Editar</a> 
-                            <a href="#" class="btn-visualizar">
-                                <i class="bi bi-eye"></i> 
-                            </a>
-                            <a href="#" class="table-btn status">Ativar/Inativar</a>
-                        </td>
-                    </tr>
+                <tbody>
                     <?php
-endforeach;
-?>
+                    foreach ($agendamentos as $agendamento):
+                    ?>
+                        <tr>
+
+                            <td><?php echo  $agendamento['id']; ?></td>
+                            <td><?php echo $agendamento['id_cliente']; ?></td>
+                            <td><?php echo $agendamento['id_funcionario']; ?></td>
+                            <td><?php echo $agendamento['id_servico']; ?></td>
+                            <td><?php echo $agendamento['data']; ?></td>
+                            <td><?php echo $agendamento['hora']; ?></td>
+                            <td><?php echo $agendamento['valor']; ?></td>
+
+                            <td class="acoes">
+                                <a class="table-btn editar " href="editar-agendamento.php?id=<?php echo $agendamento['id']; ?>">Editar</a>
+                                <a href="#" class="btn-visualizar">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                            </td>
+                        </tr>
+                    <?php
+                    endforeach;
+                    ?>
 
                 </tbody>
             </table>

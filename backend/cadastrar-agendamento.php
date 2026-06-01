@@ -12,18 +12,18 @@ try {
     // echo "Conectado com sucesso!";
     // capturar os dados enviados pelo frontend(form)
 
-    $cliente                    = $_POST['cliente'];
-    $funcionario                = $_POST['funcionario'];
-    $servico                    = $_POST['servico'];
-    $data                       = $_POST['data'];
-    $hora                       = $_POST['hora'];
-    $valor                      = $_POST['valor'];
+    $id_cliente                    = $_POST['id_cliente'];
+    $id_funcionario                = $_POST['id_funcionario'];
+    $id_servico                    = $_POST['id_servico'];
+    $data                          = $_POST['data'];
+    $hora                         = $_POST['hora'];
+    $valor                        = $_POST['valor'];
 
 
 
     //monta a query SQL
-    $sql = "INSERT INTO tb_agendamento(cliente, funcionario, servico, data ,hora, valor)
-VALUES('$cliente','$funcionario', '$servico','$data' ,'$hora','$valor')";
+    $sql = "INSERT INTO tb_agendamento(id_cliente,id_funcionario,id_servico, data ,hora, valor)
+VALUES('$id_cliente','$id_funcionario', '$id_servico','$data' ,'$hora','$valor')";
 
     //prepara a execução da query acima
     $comando = $conexao->prepare($sql);

@@ -1,0 +1,233 @@
+/* Área superior (busca + botões) */
+.top-actions {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Caixa de busca */
+.search-box {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #d63384;
+    box-shadow: 0 0 5px rgba(214, 51, 132, 0.3);
+}
+
+/* Botões padrão */
+.btn {
+    padding: 10px 20px;
+    background: #d63384;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #b0256b;
+    transform: translateY(-2px);
+}
+
+/* Botão buscar específico */
+.btn.buscar {
+    padding: 10px 15px;
+}
+
+/* Botão outline */
+.btn.outline {
+    background: transparent;
+    color: #d63384;
+    border: 2px solid #d63384;
+}
+
+.btn.outline:hover {
+    background: #d63384;
+    color: white;
+}
+
+/* Grupo de botões */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Container da tabela */
+.table-container {
+    width: 98%;
+    max-width: 1300px;
+    margin: 20px auto 40px auto;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(214, 51, 132, 0.1);
+    table-layout: auto;
+}
+
+/* Cabeçalho */
+table thead {
+    background: #d63384;
+    color: white;
+}
+
+table th {
+    padding: 12px 8px;
+    text-align: left;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Corpo */
+table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* Colunas de Data */
+table th:nth-child(3),
+table td:nth-child(3),
+table th:nth-child(4),
+table td:nth-child(4) {
+    min-width: 110px;
+    white-space: nowrap;
+}
+
+/* ID */
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 50px;
+}
+
+/* Estado */
+table th:nth-child(9),
+table td:nth-child(9) {
+    width: 70px;
+}
+
+/* Cidade */
+table th:nth-child(8),
+table td:nth-child(8) {
+    width: 120px;
+}
+
+/* Linhas alternadas */
+table tbody tr:nth-child(even) {
+    background: #fff0f6;
+}
+
+/* Hover */
+table tbody tr:hover {
+    background: #f8d7e5;
+    transition: 0.2s;
+}
+
+/* Coluna de ações */
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Botões da tabela */
+.table-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Editar */
+.table-btn.editar {
+    background: #d63384;
+}
+
+.table-btn.editar:hover {
+    background: #b0256b;
+}
+
+/* Ativar/Inativar */
+.table-btn.status {
+    background: #6c757d;
+}
+
+.table-btn.status:hover {
+    background: #5a6268;
+}
+
+/* Botão visualizar */
+.btn-visualizar {
+    background: #17a2b8;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-visualizar:hover {
+    background: #138496;
+}
+
+/* Título */
+.titulo-pagina {
+    text-align: center;
+    margin: 30px 0;
+    color: #d63384;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .top-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    table th,
+    table td {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+}

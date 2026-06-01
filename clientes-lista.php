@@ -1,4 +1,3 @@
-
 <?php
 
 //conexao do PHP com o banco de dados MYSQL
@@ -41,7 +40,8 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Clientes</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/funcionario/clientes.css">
+    <link rel="stylesheet" href="assets/css/clientes-lista.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -82,33 +82,33 @@ try {
 
 
 
-                
-                <tbody>
-                     <?php
-            foreach($clientes as $cliente):
-                ?>
-                    <tr>
 
-                       <td><?php echo $cliente['id'];?></td>
-                        <td><?php echo $cliente['nome'];?></td>
-                        <td><?php echo $cliente['data_nascimento'];?></td>
-                        <td><?php echo $cliente['data_cadastro'];?></td>
-                        <td><?php echo $cliente['endereco'];?></td>
-                        <td><?php echo $cliente['email'];?></td>
-                        <td><?php echo $cliente['telefone'];?></td>
-                        <td><?php echo $cliente['cidade'];?></td>
-                       <td><?php echo $cliente['estado'];?></td>
-                        <td class="acoes">
-                            <a class="table-btn " href="editar-clientes.php?id=<?php echo $cliente['id'];?>">Editar</a> 
-                            <a href="#" class="btn-visualizar">
-                                <i class="bi bi-eye"></i> 
-                            </a>
-                            <a href="#" class="table-btn status">Ativar/Inativar</a>
-                        </td>
-                    </tr>
+                <tbody>
                     <?php
-endforeach;
-?>
+                    foreach ($clientes as $cliente):
+                    ?>
+                        <tr>
+
+                            <td><?php echo $cliente['id']; ?></td>
+                            <td><?php echo $cliente['nome']; ?></td>
+                            <td><?php echo $cliente['data_nascimento']; ?></td>
+                            <td><?php echo $cliente['data_cadastro']; ?></td>
+                            <td><?php echo $cliente['endereco']; ?></td>
+                            <td><?php echo $cliente['email']; ?></td>
+                            <td><?php echo $cliente['telefone']; ?></td>
+                            <td><?php echo $cliente['cidade']; ?></td>
+                            <td><?php echo $cliente['estado']; ?></td>
+                            <td class="acoes">
+                                <a class="table-btn editar " href="editar-clientes.php?id=<?php echo $cliente['id']; ?>">Editar</a>
+                                <a href="#" class="btn-visualizar">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                            </td>
+                        </tr>
+                    <?php
+                    endforeach;
+                    ?>
 
                 </tbody>
             </table>

@@ -35,7 +35,7 @@ $agendamentos = listarAgendamento();
 
             <div class="action-buttons">
                 <a href="cadastrar-agendamento.php" class="btn">Cadastrar</a>
-                <a href="#" class="btn outline">Início</a>
+
             </div>
 
         </div>

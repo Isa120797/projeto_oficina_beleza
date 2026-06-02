@@ -1,36 +1,18 @@
 <?php
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
+
+//conexao do PHP com o banco de dados MYSQL
 
 
-try {
+require_once 'backend/funcoes.php';
 
-    $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
+$id = $_GET['id'];
 
-    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $id = $_GET['id'];
-
-    $sql = "SELECT * FROM tb_agendamento WHERE id=$id";
-    $comando = $conexao->prepare($sql);
-    $comando->execute();
-
-    //armazena em um array as pizzas cadastradas no banco de dados
-    $agendamentos = $comando->fetchAll(PDO::FETCH_ASSOC);
-
-    //formata o código para exibição via var_dump
-    // echo"<pre>";
-    // var_dump($pizzas);
+$agendamentos = listarAgendamentoDados($id);
 
 
+$funcionarios = listarFuncionario();
 
-} catch (PDOException $erro) {
-    echo "Erro ao conectar no banco de dados" . $erro->getMessage();
-}
-
-
+$servicos = listarServico();
 
 ?>
 
@@ -59,17 +41,25 @@ try {
 
                 <div class="input-group">
                     <label>Cliente</label>
-                    <input value="<?php echo $agendamentos[0]['cliente']; ?>" type="text" name="cliente" id="cliente">
+                    <input value="<?php echo $agendamentos[0]['nome']; ?>" type="text" name="cliente" id="cliente" readonly>
                 </div>
 
                 <div class="input-group">
                     <label>Funcionário</label>
-                    <input value="<?php echo $agendamentos[0]['funcionario']; ?>" type="text" name="funcionario" id="funcionario">
+                    <select name="id_funcionario" id="id_funcionario" required>
+                        <?php foreach ($funcionarios as $funcionario): ?>
+                            <option value="<?php echo $funcionario['id']; ?>" <?php echo $agendamentos[0]['id_funcionario'] == $funcionario['id'] ? 'selected' : '' ?>><?php echo $funcionario['nome']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 <div class="input-group">
                     <label>Serviço</label>
-                    <input value="<?php echo $agendamentos[0]['servico']; ?>" type="text" name="servico" id="servico">
+                    <select name="id_servico" id="id_servico" required>
+                        <?php foreach ($servicos as $servico): ?>
+                            <option value="<?php echo $servico['id']; ?>" <?php echo $agendamentos[0]['id_servico'] == $servico['id'] ? 'selected' : '' ?>><?php echo $servico['nome_servico']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
 

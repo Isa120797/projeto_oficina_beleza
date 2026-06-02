@@ -59,7 +59,7 @@ try {
 
             <div class="action-buttons">
                 <a href="clientes.php" class="btn">Cadastrar</a>
-                <a href="#" class="btn outline">Início</a>
+
             </div>
 
         </div>

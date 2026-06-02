@@ -80,3 +80,38 @@ function listarAgendamento()
         echo "Não foi possível executar a função";
     }
 }
+
+function listarAgendamentoDados($id)
+{
+
+    global $conexao;
+
+
+    try {
+
+        $sql = "SELECT 
+            tb_agendamento.*,
+            tb_cliente.nome,
+            tb_funcionario.nome as funcionario,
+            tb_servico.nome_servico
+        FROM tb_agendamento
+        INNER JOIN tb_cliente ON tb_cliente.id = tb_agendamento.id_cliente
+        INNER JOIN tb_funcionario ON tb_funcionario.id = tb_agendamento.id_funcionario
+        INNER JOIN tb_servico ON tb_servico.id = tb_agendamento.id_servico 
+        WHERE tb_agendamento.id=$id";
+        $comando = $conexao->prepare($sql);
+        $comando->execute();
+
+        //armazena em um array as pizzas cadastradas no banco de dados
+        return $comando->fetchAll(PDO::FETCH_ASSOC);
+
+        //formata o código para exibição via var_dump
+        // echo"<pre>";
+        // var_dump($pizzas);
+
+
+
+    } catch (PDOException $erro) {
+        echo "Erro ao conectar no banco de dados" . $erro->getMessage();
+    }
+}

@@ -13,15 +13,15 @@ try {
 
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $cliente                   = $_POST['cliente'];
-    $funcionario               = $_POST['funcionario'];
-    $servico                   = $_POST['servico'];
+
+    $funcionario               = $_POST['id_funcionario'];
+    $servico                   = $_POST['id_servico'];
     $data                      = $_POST['data'];
     $hora                      = $_POST['hora'];
     $valor                     = $_POST['valor'];
-    $id                        = $_GET ['id'];
+    $id                        = $_GET['id'];
 
-    $sql = "UPDATE tb_agendamento SET cliente= '$cliente', funcionario='$funcionario', servico='$servico',data='$data',hora='$hora',valor='$valor' WHERE id= $id";
+    $sql = "UPDATE tb_agendamento SET  id_funcionario='$funcionario', id_servico='$servico',data='$data',hora='$hora',valor='$valor' WHERE id= $id";
 
     $comando = $conexao->prepare($sql);
 

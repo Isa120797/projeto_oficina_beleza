@@ -68,10 +68,10 @@ try {
                 <input value="<?php echo $funcionarios[0]['telefone']; ?>" type="text" name="telefone" id="telefone">
             </div>
 
-            
+            <input type="submit" value="Salvar">
         </form>
     </div>
-<input type="submit" value="Salvar">
+
     <script src="assets/js/inputmask.js"></script>
 
     <script>

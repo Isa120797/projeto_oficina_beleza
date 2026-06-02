@@ -2,11 +2,7 @@
 
 //conexao do PHP com o banco de dados MYSQL
 
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
-
+require_once 'backend/funcoes.php';
 //string de conexao usando PDO
 try {
     $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
@@ -28,6 +24,11 @@ try {
 } catch (PDOException $erro) {
 
     echo "Erro ao conectar no banco de dados" . $erro->getMessage();
+}
+// altera ativo/inativo
+if (isset($_GET['alterarAtivo'])) {
+    $id = filter_input(INPUT_GET, 'alterarAtivo');
+    alterarAtivoCliente($id);
 }
 
 ?>
@@ -99,11 +100,17 @@ try {
                             <td><?php echo $cliente['cidade']; ?></td>
                             <td><?php echo $cliente['estado']; ?></td>
                             <td class="acoes">
-                                <a class="table-btn editar " href="editar-clientes.php?id=<?php echo $cliente['id']; ?>">Editar</a>
-                                <a href="#" class="btn-visualizar">
-                                    <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                                <a class="table-btn editar" href="editar-clientes.php?id=<?php echo $cliente['id']; ?>">Editar</a>
+                               <a  href="?alterarAtivo=<?php echo $cliente['id']; ?>" onclick="return confirm('Deseja alterar?')">
+                        <button class="table-btn editar" type="button" class="<?php echo $cliente['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                            <?php
+                            if ($cliente['ativo'] == 1) {
+                                echo "Ativo";
+                            } else {
+                                echo "Inativo";
+                            } ?>
+                        </button>
+                    </a>
                             </td>
                         </tr>
                     <?php

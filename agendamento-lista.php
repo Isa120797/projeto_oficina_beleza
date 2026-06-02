@@ -2,35 +2,9 @@
 
 //conexao do PHP com o banco de dados MYSQL
 
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
 
-//string de conexao usando PDO
-try {
-    $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
-
-    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $sql = "SELECT * FROM tb_agendamento";
-
-    $comando = $conexao->prepare($sql);
-
-    $comando->execute();
-    // armazena em um array os funcionarios cadastrados no banco de dados
-
-    $agendamentos = $comando->fetchAll(PDO::FETCH_ASSOC);
-
-    // formata o código para exibição via var_dump
-    // echo "<pre>";
-    // var_dump($funcionarios);
-} catch (PDOException $erro) {
-
-    echo "Erro ao conectar no banco de dados" . $erro->getMessage();
-}
-// require_once 'backend/funcoes.php';
-// $agendamento = listarAgendamento();
+require_once 'backend/funcoes.php';
+$agendamentos = listarAgendamento();
 
 ?>
 
@@ -44,9 +18,7 @@ try {
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/funcionario/clientes.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        i {}
-    </style>
+
 </head>
 
 <body>
@@ -92,9 +64,9 @@ try {
                         <tr>
 
                             <td><?php echo  $agendamento['id']; ?></td>
-                            <td><?php echo $agendamento['id_cliente']; ?></td>
-                            <td><?php echo $agendamento['id_funcionario']; ?></td>
-                            <td><?php echo $agendamento['id_servico']; ?></td>
+                            <td><?php echo $agendamento['nome']; ?></td>
+                            <td><?php echo $agendamento['funcionario']; ?></td>
+                            <td><?php echo $agendamento['nome_servico']; ?></td>
                             <td><?php echo $agendamento['data']; ?></td>
                             <td><?php echo $agendamento['hora']; ?></td>
                             <td><?php echo $agendamento['valor']; ?></td>

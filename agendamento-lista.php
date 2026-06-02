@@ -73,9 +73,7 @@ $agendamentos = listarAgendamento();
 
                             <td class="acoes">
                                 <a class="table-btn editar " href="editar-agendamento.php?id=<?php echo $agendamento['id']; ?>">Editar</a>
-                                <a href="#" class="btn-visualizar">
-                                    <i class="bi bi-eye"></i>
-                                </a>
+                                
                                 <a href="#" class="table-btn status">Ativar/Inativar</a>
                             </td>
                         </tr>

@@ -5,6 +5,13 @@ try{
 $nome       = $_POST['nome'];
 $email      = $_POST['email'];
 $senha      = $_POST['senha'];
+$confirmar  = $_POST['confirmar'];
+
+if ($senha != $confirmar){
+    echo " Senhas não conferem";
+    exit();
+    
+}
 
 //gerar o hash da senha digitada usando o alg ARGON2ID
 $senha_hash = password_hash ($senha,PASSWORD_ARGON2I);

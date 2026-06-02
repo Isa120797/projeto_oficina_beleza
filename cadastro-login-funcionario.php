@@ -65,14 +65,21 @@
 
  <div class="mb-3">
           <label class="form-label">Senha</label>
-          <input type="pasword" name="senha" id="senha" class="form-control" placeholder="Sua senha" required>
+          <input type="password" name="senha" id="senha" class="form-control" placeholder="Sua senha" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Confirmar Senha</label>
+          <input type="password" name="confirmar" id="confirmar" class="form-control" placeholder="Confirmar senha" required>
         </div>
 
 
         <button type="submit" class="btn btn-dark w-100">
           Cadastrar
         </button>
-
+<p class="text-center mt-2">
+    Já tem conta? <a href="login.php">Login</a>
+  </p>
       </form>
 
     </div>

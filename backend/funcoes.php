@@ -115,3 +115,17 @@ function listarAgendamentoDados($id)
         echo "Erro ao conectar no banco de dados" . $erro->getMessage();
     }
 }
+function alterarAtivoFuncionario($id)
+{
+    global $conexao;
+    try {
+        $sql = "UPDATE tb_funcionario SET ativo = 1-ativo WHERE id=:id";
+        $comando = $conexao->prepare($sql);
+        $comando->bindValue(':id', $id);
+        $comando->execute();
+        header("Location:funcionarios-lista.php");
+    } catch (PDOException $erro) {
+        error_log($erro->getMessage());
+        echo "Não foi possível executar a função";
+    }
+}

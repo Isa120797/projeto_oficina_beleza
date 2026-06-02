@@ -51,15 +51,15 @@
 
 
             <h5 class="text-center mb-3">Login</h5>
-            <form>
+            <form action="backend/valida-login.php" method="post">
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="Seu email" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Seu email" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Senha</label>
-                    <input type="password" class="form-control" placeholder="Sua senha" required>
+                    <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha" required>
                 </div>
 
                 <div class="text-end mb-3">

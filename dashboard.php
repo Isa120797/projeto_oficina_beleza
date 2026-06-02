@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body{
+        body {
             background-color: #f5f7fb;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -28,33 +28,33 @@
             SIDEBAR
         ==========================*/
 
-       .sidebar{
-    width: 270px;
-    height: 100vh;
-    background: linear-gradient(180deg, #d63384, #ec407a);
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 30px 20px;
-}
+        .sidebar {
+            width: 270px;
+            height: 100vh;
+            background: linear-gradient(180deg, #d63384, #ec407a);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 30px 20px;
+        }
 
-        .logo{
+        .logo {
             color: white;
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 50px;
         }
 
-        .menu{
+        .menu {
             list-style: none;
             padding: 0;
         }
 
-        .menu li{
+        .menu li {
             margin-bottom: 15px;
         }
 
-        .menu a{
+        .menu a {
             text-decoration: none;
             color: white;
             display: flex;
@@ -66,11 +66,11 @@
             font-size: 17px;
         }
 
-        .menu a:hover{
-            background-color: rgba(255,255,255,0.15);
+        .menu a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
-        .menu .ativo{
+        .menu .ativo {
             background-color: white;
             color: #1565c0;
             font-weight: bold;
@@ -80,7 +80,7 @@
             CONTEÚDO
         ==========================*/
 
-        .conteudo{
+        .conteudo {
             margin-left: 270px;
             padding: 30px;
         }
@@ -89,31 +89,31 @@
             TOPO
         ==========================*/
 
-        .topo{
+        .topo {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 35px;
         }
 
-        .titulo-dashboard h1{
+        .titulo-dashboard h1 {
             font-size: 35px;
             color: #1f2937;
             font-weight: bold;
         }
 
-        .titulo-dashboard p{
+        .titulo-dashboard p {
             color: gray;
             font-size: 17px;
         }
 
-        .perfil{
+        .perfil {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .icone-topo{
+        .icone-topo {
             width: 45px;
             height: 45px;
             background-color: white;
@@ -121,11 +121,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             cursor: pointer;
         }
 
-        .avatar{
+        .avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -141,19 +141,19 @@
             CARDS
         ==========================*/
 
-        .card-dashboard{
+        .card-dashboard {
             border: none;
             border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             transition: 0.3s;
         }
 
-        .card-dashboard:hover{
+        .card-dashboard:hover {
             transform: translateY(-5px);
         }
 
-        .icone-card{
+        .icone-card {
             width: 60px;
             height: 60px;
             border-radius: 15px;
@@ -165,29 +165,29 @@
             margin-bottom: 20px;
         }
 
-        .bg-clientes{
+        .bg-clientes {
             background-color: #1565c0;
         }
 
-        .bg-agenda{
+        .bg-agenda {
             background-color: #8e24aa;
         }
 
-        .bg-vendas{
+        .bg-vendas {
             background-color: #2e7d32;
         }
 
-        .bg-produtos{
+        .bg-produtos {
             background-color: #ef6c00;
         }
 
-        .numero-card{
+        .numero-card {
             font-size: 32px;
             font-weight: bold;
             color: #1f2937;
         }
 
-        .texto-card{
+        .texto-card {
             color: gray;
             font-size: 16px;
         }
@@ -196,31 +196,31 @@
             TABELAS
         ==========================*/
 
-        .card-tabela{
+        .card-tabela {
             background-color: white;
             border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
-        .titulo-secao{
+        .titulo-secao {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 25px;
             color: #1f2937;
         }
 
-        table{
+        table {
             width: 100%;
         }
 
-        th{
+        th {
             color: gray;
             font-weight: 600;
             padding-bottom: 15px;
         }
 
-        td{
+        td {
             padding: 15px 0;
             border-top: 1px solid #eee;
         }
@@ -229,23 +229,23 @@
             META
         ==========================*/
 
-        .meta{
+        .meta {
             background: linear-gradient(135deg, #1565c0, #42a5f5);
             color: white;
             border-radius: 20px;
             padding: 30px;
         }
 
-        .barra{
+        .barra {
             width: 100%;
             height: 12px;
-            background-color: rgba(255,255,255,0.3);
+            background-color: rgba(255, 255, 255, 0.3);
             border-radius: 10px;
             overflow: hidden;
             margin-top: 20px;
         }
 
-        .progresso{
+        .progresso {
             width: 76%;
             height: 100%;
             background-color: white;
@@ -255,20 +255,20 @@
             RESPONSIVO
         ==========================*/
 
-        @media(max-width: 992px){
+        @media(max-width: 992px) {
 
-            .sidebar{
+            .sidebar {
                 display: none;
             }
 
-            .conteudo{
+            .conteudo {
                 margin-left: 0;
             }
 
         }
-
     </style>
 </head>
+
 <body>
 
     <!-- SIDEBAR -->
@@ -336,7 +336,12 @@
                     Financeiro
                 </a>
             </li>
-
+            <li>
+                <a href="sair.php">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair
+                </a>
+            </li>
         </ul>
 
     </aside>
@@ -557,4 +562,5 @@
     </main>
 
 </body>
+
 </html>

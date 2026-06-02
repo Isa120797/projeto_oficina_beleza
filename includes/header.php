@@ -21,8 +21,12 @@
                 <li>Serviços</li>
             </a>
             <a href="produtos-lista.php">
-                <li>Produtos</li>
+                <li>Produtos</li>   
             </a>
+            <a href="pedidos.php">
+                <li>Vendas</li>   
+            </a>
+
             <a href="sair.php">
                 <li>Sair</li>
             </a>

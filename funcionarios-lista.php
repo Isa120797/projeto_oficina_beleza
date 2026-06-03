@@ -2,11 +2,7 @@
 
 //conexao do PHP com o banco de dados MYSQL
 
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
-
+require_once 'backend/funcoes.php';
 //string de conexao usando PDO
 try {
     $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
@@ -30,6 +26,12 @@ try {
     echo "Erro ao conectar no banco de dados" . $erro->getMessage();
 }
 
+if (isset($_GET['alterarAtivo'])) {
+    $id = filter_input(INPUT_GET, 'alterarAtivo');
+    //executa a função que ativa/desativa o produto
+    alterarAtivoFuncionario($id);
+}
+
 ?>
 
 
@@ -48,6 +50,7 @@ try {
     <?php require_once 'includes/header.php';
     ?>
     <main>
+
         <h1 class="titulo-pagina">Funcionários</h1>
         <div class="top-actions">
 
@@ -62,6 +65,7 @@ try {
             </div>
 
         </div>
+
         <div class="table-container">
             <table>
                 <thead>
@@ -89,7 +93,19 @@ try {
 
                                 <a class="table-btn editar" href="editar-funcionarios.php?id=<?php echo $funcionario['id']; ?>">Editar</a>
 
-                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+
+                                <a href="?alterarAtivo=<?php echo $funcionario['id']; ?>" onclick="return confirm('Deseja Alterar?')">
+                                    <button class="table-btn status" type="button" class="<?php echo $funcionario['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                                        <?php
+                                        if ($funcionario['ativo'] == 1) {
+                                            echo "Ativo";
+                                        } else
+                                            echo "Inativo";
+                                        ?>
+                                    </button>
+                                </a>
+
+
                             </td>
                         </tr>
                     </tbody>

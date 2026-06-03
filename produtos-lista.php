@@ -2,12 +2,9 @@
 
 //conexao do PHP com o banco de dados MYSQL
 
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
-
+require_once 'backend/funcoes.php';
 //string de conexao usando PDO
+
 try {
     $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);
 
@@ -28,6 +25,11 @@ try {
 } catch (PDOException $erro) {
 
     echo "Erro ao conectar no banco de dados" . $erro->getMessage();
+}
+if (isset($_GET['alterarAtivo'])) {
+    $id = filter_input(INPUT_GET, 'alterarAtivo');
+    //executa a função que ativa/desativa o produto
+    alterarAtivoProduto($id);
 }
 
 ?>
@@ -97,7 +99,16 @@ try {
 
                                 <a class="table-btn editar" href="editar-produtos.php?id=<?php echo $produto['id']; ?>">Editar</a>
 
-                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                                <a href="?alterarAtivo=<?php echo $produto['id']; ?>" onclick="return confirm('Deseja Alterar?')">
+                                    <button class="table-btn status" type="button" class="<?php echo $produto['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                                        <?php
+                                        if ($produto['ativo'] == 1) {
+                                            echo "Ativo";
+                                        } else
+                                            echo "Inativo";
+                                        ?>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     </tbody>

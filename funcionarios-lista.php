@@ -105,7 +105,7 @@ if (isset($_GET['alterarAtivo'])) {
                                     </button>
                                 </a>
 
-                                <!-- <a href="#" class="table-btn status">Ativar/Inativar</a> -->
+
                             </td>
                         </tr>
                     </tbody>

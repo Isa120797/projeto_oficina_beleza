@@ -1,6 +1,9 @@
 <?php
 //incluir o arquivo de conexao
-require_once 'backend/conexao.php';
+// require_once 'backend/conexao.php';
+
+require_once 'backend/funcoes.php';
+//string de conexao usando PDO
 
 //string de conexao usando PDO
 try {
@@ -24,6 +27,13 @@ try {
 
     echo "Erro ao conectar no banco de dados" . $erro->getMessage();
 }
+
+if (isset($_GET['alterarAtivo'])) {
+    $id = filter_input(INPUT_GET, 'alterarAtivo');
+    //executa a função que ativa/desativa o produto
+    alterarAtivoServico($id);
+}
+
 
 ?>
 
@@ -86,7 +96,18 @@ try {
 
                                 <a class="table-btn editar" href="editar-servicos.php?id=<?php echo $servico['id']; ?>">Editar</a>
 
-                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                                <a href="?alterarAtivo=<?php echo $servico['id']; ?>" onclick="return confirm('Deseja Alterar?')">
+                                    <button class="table-btn status" type="button" class="<?php echo $servico['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                                        <?php
+                                        if ($servico['ativo'] == 1) {
+                                            echo "Ativo";
+                                        } else
+                                            echo "Inativo";
+                                        ?>
+                                    </button>
+                                </a>
+
+                                <!-- <a href="#" class="table-btn status">Ativar/Inativar</a> -->
                             </td>
                         </tr>
                     </tbody>

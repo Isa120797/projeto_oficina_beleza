@@ -79,7 +79,7 @@ if (isset($_GET['alterarAtivo'])) {
                             <td class="acoes">
                                 <a class="table-btn editar " href="editar-agendamento.php?id=<?php echo $agendamento['id']; ?>">Editar</a>
                               <a  href="?alterarAtivo=<?php echo $agendamento['id']; ?>" onclick="return confirm('Deseja alterar?')">
-                        <button class="table-btn editar" type="button" class="<?php echo $agendamento['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                        <button class="table-btn status" type="button" class="<?php echo $agendamento['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
                             <?php
                             if ($agendamento['ativo'] == 1) {
                                 echo "Ativo";

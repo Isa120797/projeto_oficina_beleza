@@ -143,6 +143,10 @@ function alterarAtivoAgendamento($id)
         echo $e->getMessage();
     }
 }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> d6a01b9bd433fd0b9ed1bb8fb8ee3ef33d7c4c5a
 function alterarAtivoFuncionario($id)
 {
     global $conexao;

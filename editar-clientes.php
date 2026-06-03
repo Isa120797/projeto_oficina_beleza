@@ -106,17 +106,10 @@ try {
 
             <input type="submit" value="Salvar">
 
-<<<<<<< Updated upstream
 
         </form>
 
     </div>
-=======
-<input type="submit" value="Salvar">
-
-</form>
-  
->>>>>>> Stashed changes
 
 </body>
 

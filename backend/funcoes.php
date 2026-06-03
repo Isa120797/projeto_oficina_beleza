@@ -115,7 +115,6 @@ function listarAgendamentoDados($id)
         echo "Erro ao conectar no banco de dados" . $erro->getMessage();
     }
 }
-<<<<<<< HEAD
 
 function alterarAtivoCliente($id)
 {
@@ -144,7 +143,6 @@ function alterarAtivoAgendamento($id)
     echo $e->getMessage();
 }
 }
-=======
 function alterarAtivoFuncionario($id)
 {
     global $conexao;
@@ -188,4 +186,3 @@ function  alterarAtivoProduto($id)
         echo "Não foi possível executar a função";
     }
 }
->>>>>>> Vanessa-Funcionario-Editar

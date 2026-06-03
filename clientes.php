@@ -47,7 +47,7 @@
                 </div>
                 <div class="input-group">
                     <label>Telefone</label>
-                    <input type="number" id="telefone" name="telefone" required>
+                    <input type="text" id="telefone" name="telefone" required>
                 </div>
                 <div class="input-group">
                     <label>Cidade</label>
@@ -66,6 +66,21 @@
 
 
     </div>
+    <script src="assets/js/inputmask.js"></script>
+
+    <script>
+        var telefone = document.getElementById('telefone');
+
+        var im = new Inputmask({
+            mask: [
+                "(99) 9999-9999", // fixo
+                "(99) 99999-9999" // celular
+            ],
+            keepStatic: true
+        });
+
+        im.mask(telefone);
+    </script>
 
 </body>
 

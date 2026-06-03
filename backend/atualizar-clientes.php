@@ -21,7 +21,7 @@ try {
     $cidade                         = $_POST['cidade'];
     $estado                         = $_POST['estado'];
     $data_cadastro                  = $_POST['data_cadastro'];
-    $status                         = $_POST['ativo'];
+    $ativo                         = $_POST['ativo'];
     $id                             = $_GET['id'];
 
     $sql = "UPDATE tb_cliente SET nome= '$nome', data_nascimento='$data_nascimento', endereco='$endereco',email='$email',telefone='$telefone',cidade='$cidade',estado='$estado',data_cadastro='$data_cadastro', ativo= '$ativo' WHERE id= $id";

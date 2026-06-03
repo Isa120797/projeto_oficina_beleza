@@ -115,36 +115,34 @@ function listarAgendamentoDados($id)
         echo "Erro ao conectar no banco de dados" . $erro->getMessage();
     }
 }
-<<<<<<< HEAD
 
 function alterarAtivoCliente($id)
 {
-   global $conexao;
-   try {
-      $sql = "UPDATE tb_cliente SET ativo = 1-ativo WHERE id=:id";
-      $comando = $conexao->prepare($sql);
-      $comando->bindValue(':id', $id);
-      $comando->execute();
-      header('Location:clientes-lista.php');
-   }  catch (Exception $e) {
-    echo $e->getMessage();
-}
+    global $conexao;
+    try {
+        $sql = "UPDATE tb_cliente SET ativo = 1-ativo WHERE id=:id";
+        $comando = $conexao->prepare($sql);
+        $comando->bindValue(':id', $id);
+        $comando->execute();
+        header('Location:clientes-lista.php');
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
 }
 
 function alterarAtivoAgendamento($id)
 {
-   global $conexao;
-   try {
-      $sql = "UPDATE tb_agendamento SET ativo = 1-ativo WHERE id=:id";
-      $comando = $conexao->prepare($sql);
-      $comando->bindValue(':id', $id);
-      $comando->execute();
-      header('Location:agendamento-lista.php');
-   }  catch (Exception $e) {
-    echo $e->getMessage();
+    global $conexao;
+    try {
+        $sql = "UPDATE tb_agendamento SET ativo = 1-ativo WHERE id=:id";
+        $comando = $conexao->prepare($sql);
+        $comando->bindValue(':id', $id);
+        $comando->execute();
+        header('Location:agendamento-lista.php');
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
 }
-}
-=======
 function alterarAtivoFuncionario($id)
 {
     global $conexao;
@@ -188,4 +186,3 @@ function  alterarAtivoProduto($id)
         echo "Não foi possível executar a função";
     }
 }
->>>>>>> Vanessa-Funcionario-Editar

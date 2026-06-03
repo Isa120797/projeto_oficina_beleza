@@ -129,3 +129,17 @@ function alterarAtivoCliente($id)
     echo $e->getMessage();
 }
 }
+
+function alterarAtivoAgendamento($id)
+{
+   global $conexao;
+   try {
+      $sql = "UPDATE tb_agendamento SET ativo = 1-ativo WHERE id=:id";
+      $comando = $conexao->prepare($sql);
+      $comando->bindValue(':id', $id);
+      $comando->execute();
+      header('Location:agendamento-lista.php');
+   }  catch (Exception $e) {
+    echo $e->getMessage();
+}
+}

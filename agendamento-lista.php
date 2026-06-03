@@ -6,6 +6,11 @@
 require_once 'backend/funcoes.php';
 $agendamentos = listarAgendamento();
 
+if (isset($_GET['alterarAtivo'])) {
+    $id = filter_input(INPUT_GET, 'alterarAtivo');
+    alterarAtivoAgendamento($id);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -73,8 +78,15 @@ $agendamentos = listarAgendamento();
 
                             <td class="acoes">
                                 <a class="table-btn editar " href="editar-agendamento.php?id=<?php echo $agendamento['id']; ?>">Editar</a>
-                                
-                                <a href="#" class="table-btn status">Ativar/Inativar</a>
+                              <a  href="?alterarAtivo=<?php echo $agendamento['id']; ?>" onclick="return confirm('Deseja alterar?')">
+                        <button class="table-btn editar" type="button" class="<?php echo $agendamento['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                            <?php
+                            if ($agendamento['ativo'] == 1) {
+                                echo "Ativo";
+                            } else {
+                                echo "Inativo";
+                            } ?>
+                        </button>
                             </td>
                         </tr>
                     <?php

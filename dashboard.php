@@ -1,3 +1,11 @@
+<?php
+
+require_once 'consulta-dashboard.php';
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -387,9 +395,8 @@
                     <div class="icone-card bg-clientes">
                         <i class="fa-solid fa-users"></i>
                     </div>
-
                     <div class="numero-card">
-                        1.245
+                        <?= $totalClientes['total'] ?>
                     </div>
 
                     <div class="texto-card">
@@ -409,7 +416,7 @@
                     </div>
 
                     <div class="numero-card">
-                        28
+                        <?= $totalAgendamentos['total'] ?>
                     </div>
 
                     <div class="texto-card">
@@ -429,7 +436,7 @@
                     </div>
 
                     <div class="numero-card">
-                        R$ 2.450
+                        R$ <?= number_format($faturamentoDia['total'], 2, ',', '.') ?>
                     </div>
 
                     <div class="texto-card">
@@ -449,7 +456,7 @@
                     </div>
 
                     <div class="numero-card">
-                        86
+                        <?= number_format($totalEstoque['total'], 0, ',', '.') ?>
                     </div>
 
                     <div class="texto-card">

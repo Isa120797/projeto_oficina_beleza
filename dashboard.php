@@ -1,3 +1,31 @@
+<?php
+
+require_once 'consulta-dashboard.php';
+
+session_start();
+
+if (!isset($_SESSION['logado'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$nomeUsuario = $_SESSION['nome'];
+
+
+$partes = explode(' ', $nomeUsuario);
+
+$iniciais = strtoupper(substr($partes[0], 0, 1));
+
+if (count($partes) > 1) {
+    $iniciais .= strtoupper(substr($partes[1], 0, 1));
+}
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -331,9 +359,9 @@
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fa-solid fa-money-bill-wave"></i>
-                    Financeiro
+                <a href="configuracoes.php">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
                 </a>
             </li>
             <li>
@@ -355,8 +383,7 @@
         <div class="topo">
 
             <div class="titulo-dashboard">
-                <h1>Olá, Isabela 👋</h1>
-
+                <h1>Olá, <?= $nomeUsuario ?> 👋</h1>
                 <p>
                     Bem-vinda ao painel da Oficina de Beleza
                 </p>
@@ -369,7 +396,9 @@
                 </div>
 
                 <div class="avatar">
-                    IM
+                    <div class="avatar">
+                        <?= $iniciais ?>
+                    </div>
                 </div>
 
             </div>
@@ -387,9 +416,8 @@
                     <div class="icone-card bg-clientes">
                         <i class="fa-solid fa-users"></i>
                     </div>
-
                     <div class="numero-card">
-                        1.245
+                        <?= $totalClientes['total'] ?>
                     </div>
 
                     <div class="texto-card">
@@ -409,7 +437,7 @@
                     </div>
 
                     <div class="numero-card">
-                        28
+                        <?= $totalAgendamentos['total'] ?>
                     </div>
 
                     <div class="texto-card">
@@ -429,7 +457,7 @@
                     </div>
 
                     <div class="numero-card">
-                        R$ 2.450
+                        R$ <?= number_format($faturamentoDia['total'], 2, ',', '.') ?>
                     </div>
 
                     <div class="texto-card">
@@ -449,7 +477,7 @@
                     </div>
 
                     <div class="numero-card">
-                        86
+                        <?= number_format($totalEstoque['total'], 0, ',', '.') ?>
                     </div>
 
                     <div class="texto-card">
@@ -491,33 +519,28 @@
 
                         <tbody>
 
-                            <tr>
-                                <td>09:00</td>
-                                <td>Maria Silva</td>
-                                <td>Escova</td>
-                                <td>Ana</td>
-                            </tr>
+                            <?php if (!empty($agenda)): ?>
 
-                            <tr>
-                                <td>10:30</td>
-                                <td>Fernanda</td>
-                                <td>Manicure</td>
-                                <td>Juliana</td>
-                            </tr>
+                                <?php foreach ($agenda as $item): ?>
 
-                            <tr>
-                                <td>14:00</td>
-                                <td>Camila</td>
-                                <td>Progressiva</td>
-                                <td>Patrícia</td>
-                            </tr>
+                                    <tr>
+                                        <td><?= date('H:i', strtotime($item['hora'])) ?></td>
+                                        <td><?= $item['cliente'] ?></td>
+                                        <td><?= $item['nome_servico'] ?></td>
+                                        <td><?= $item['funcionario'] ?></td>
+                                    </tr>
 
-                            <tr>
-                                <td>16:00</td>
-                                <td>Bruna</td>
-                                <td>Corte</td>
-                                <td>Beatriz</td>
-                            </tr>
+                                <?php endforeach; ?>
+
+                            <?php else: ?>
+
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        Nenhum agendamento encontrado.
+                                    </td>
+                                </tr>
+
+                            <?php endif; ?>
 
                         </tbody>
 
@@ -538,15 +561,18 @@
                     </h3>
 
                     <h1 class="mt-4">
-                        R$ 10.000
+                        R$ <?= number_format($metaMes, 2, ',', '.') ?>
                     </h1>
 
                     <p>
-                        76% da meta concluída
+                        <?= round($percentualMeta) ?>% da meta concluída
                     </p>
 
                     <div class="barra">
-                        <div class="progresso"></div>
+                        <div
+                            class="progresso"
+                            style="width: <?= $percentualMeta ?>%;">
+                        </div>
                     </div>
 
                     <div class="mt-4">

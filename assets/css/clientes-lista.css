@@ -1,94 +1,37 @@
-/* Área superior (busca + botões) */
-.top-actions {
-    max-width: 900px;
-    margin: 30px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
+/* ==========================================
+   TÍTULO DA PÁGINA
+========================================== */
 
-/* Caixa de busca */
-.search-box {
-    display: flex;
-    gap: 10px;
-    flex: 1;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    outline: none;
-    transition: 0.3s;
-}
-
-.search-box input:focus {
-    border-color: #d63384;
-    box-shadow: 0 0 5px rgba(214, 51, 132, 0.3);
-}
-
-/* Botões padrão */
-.btn {
-    padding: 10px 20px;
-    background: #d63384;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #b0256b;
-    transform: translateY(-2px);
-}
-
-/* Botão buscar específico */
-.btn.buscar {
-    padding: 10px 15px;
-}
-
-/* Botão outline */
-.btn.outline {
-    background: transparent;
+.titulo-pagina {
+    text-align: center;
+    margin: 30px 0;
     color: #d63384;
-    border: 2px solid #d63384;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.btn.outline:hover {
-    background: #d63384;
-    color: white;
-}
+/* ==========================================
+   CONTAINER DA TABELA
+========================================== */
 
-/* Grupo de botões */
-.action-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-/* Container da tabela */
 .table-container {
     width: 98%;
     max-width: 1300px;
     margin: 20px auto 40px auto;
 }
 
-/* Tabela */
+/* ==========================================
+   TABELA
+========================================== */
+
 table {
     width: 100%;
-    border-collapse: collapse;
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(214, 51, 132, 0.1);
-    table-layout: auto;
 }
 
-/* Cabeçalho */
 table thead {
     background: #d63384;
     color: white;
@@ -101,7 +44,6 @@ table th {
     white-space: nowrap;
 }
 
-/* Corpo */
 table td {
     padding: 12px 8px;
     border-bottom: 1px solid #eee;
@@ -109,7 +51,30 @@ table td {
     vertical-align: middle;
 }
 
-/* Colunas de Data */
+/* Linhas alternadas */
+
+table tbody tr:nth-child(even) {
+    background: #fff0f6;
+}
+
+table tbody tr:hover {
+    background: #f8d7e5;
+    transition: 0.2s;
+}
+
+/* ==========================================
+   AJUSTE DE COLUNAS
+========================================== */
+
+/* ID */
+
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 50px;
+}
+
+/* Datas */
+
 table th:nth-child(3),
 table td:nth-child(3),
 table th:nth-child(4),
@@ -118,36 +83,24 @@ table td:nth-child(4) {
     white-space: nowrap;
 }
 
-/* ID */
-table th:nth-child(1),
-table td:nth-child(1) {
-    width: 50px;
+/* Cidade */
+
+table th:nth-child(8),
+table td:nth-child(8) {
+    min-width: 120px;
 }
 
 /* Estado */
+
 table th:nth-child(9),
 table td:nth-child(9) {
-    width: 70px;
+    min-width: 70px;
 }
 
-/* Cidade */
-table th:nth-child(8),
-table td:nth-child(8) {
-    width: 120px;
-}
+/* ==========================================
+   BOTÕES DA TABELA
+========================================== */
 
-/* Linhas alternadas */
-table tbody tr:nth-child(even) {
-    background: #fff0f6;
-}
-
-/* Hover */
-table tbody tr:hover {
-    background: #f8d7e5;
-    transition: 0.2s;
-}
-
-/* Coluna de ações */
 .acoes {
     display: flex;
     align-items: center;
@@ -155,39 +108,43 @@ table tbody tr:hover {
     flex-wrap: wrap;
 }
 
-/* Botões da tabela */
 .table-btn {
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 6px;
     font-size: 12px;
     text-decoration: none;
     color: white;
+    border: none;
+    cursor: pointer;
     transition: 0.3s;
 }
 
 /* Editar */
-.table-btn.editar {
+
+.editar {
     background: #d63384;
 }
 
-.table-btn.editar:hover {
+.editar:hover {
     background: #b0256b;
 }
 
-/* Ativar/Inativar */
-.table-btn.status {
+/* Status */
+
+.status {
     background: #6c757d;
 }
 
-.table-btn.status:hover {
+.status:hover {
     background: #5a6268;
 }
 
-/* Botão visualizar */
+/* Visualizar */
+
 .btn-visualizar {
     background: #17a2b8;
     color: white;
-    padding: 5px 8px;
+    padding: 6px 10px;
     border-radius: 6px;
     text-decoration: none;
     transition: 0.3s;
@@ -197,29 +154,85 @@ table tbody tr:hover {
     background: #138496;
 }
 
-/* Título */
-.titulo-pagina {
-    text-align: center;
-    margin: 30px 0;
-    color: #d63384;
-    font-size: 28px;
-    font-weight: bold;
+/* ==========================================
+   DATATABLES
+========================================== */
+
+/* Pesquisar */
+
+.dt-search {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
 }
 
-/* Responsivo */
+/* Campo pesquisar */
+
+.dt-search input {
+    border: 1px solid #ddd !important;
+    border-radius: 10px !important;
+    padding: 8px 12px !important;
+}
+
+/* Botão cadastrar */
+
+.btn-cadastrar-dt {
+    background: #d63384;
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-cadastrar-dt:hover {
+    background: #b0256b;
+    color: white !important;
+}
+
+/* ==========================================
+   PAGINAÇÃO
+========================================== */
+
+.page-link {
+    color: #d63384 !important;
+}
+
+.page-link:hover {
+    color: #b0256b !important;
+    background-color: #fff0f6 !important;
+}
+
+.page-item.active .page-link,
+.page-link.active {
+    background-color: #d63384 !important;
+    border-color: #d63384 !important;
+    color: white !important;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(214, 51, 132, 0.25) !important;
+}
+
+/* ==========================================
+   EXIBIR REGISTROS
+========================================== */
+
+.dt-length select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.dt-info {
+    color: #666;
+}
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
 @media (max-width: 768px) {
-    .top-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .action-buttons {
-        justify-content: center;
-    }
-
-    table {
-        font-size: 12px;
-    }
 
     table th,
     table td {
@@ -229,5 +242,11 @@ table tbody tr:hover {
 
     .acoes {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dt-search {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

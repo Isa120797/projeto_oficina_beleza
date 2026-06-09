@@ -44,6 +44,9 @@ if (isset($_GET['alterarAtivo'])) {
     <link rel="stylesheet" href="assets/css/clientes-lista.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
+
 </head>
 
 <body>
@@ -51,21 +54,18 @@ if (isset($_GET['alterarAtivo'])) {
     ?>
     <main>
         <h1 class="titulo-pagina">Meus Clientes</h1>
-        <div class="top-actions">
+        <!-- <div class="top-actions">
 
-            <div class="search-box">
-                <input type="text" placeholder="Buscar por nome">
-                <button class="btn buscar">Buscar</button>
-            </div>
+
 
             <div class="action-buttons">
-                <a href="clientes.php" class="btn">Cadastrar</a>
+                <a href="clientes.php" class="btn" id="btnCadastrar">Cadastrar</a>
 
             </div>
 
-        </div>
+        </div> -->
         <div class="table-container">
-            <table>
+            <table class="table table-striped display" id="listagem-cliente">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -101,16 +101,16 @@ if (isset($_GET['alterarAtivo'])) {
                             <td><?php echo $cliente['estado']; ?></td>
                             <td class="acoes">
                                 <a class="table-btn editar" href="editar-clientes.php?id=<?php echo $cliente['id']; ?>">Editar</a>
-                               <a  href="?alterarAtivo=<?php echo $cliente['id']; ?>" onclick="return confirm('Deseja alterar?')">
-                        <button class="table-btn status" type="button" class="<?php echo $cliente['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
-                            <?php
-                            if ($cliente['ativo'] == 1) {
-                                echo "Ativo";
-                            } else {
-                                echo "Inativo";
-                            } ?>
-                        </button>
-                    </a>
+                                <a href="?alterarAtivo=<?php echo $cliente['id']; ?>" onclick="return confirm('Deseja alterar?')">
+                                    <button class="table-btn status" type="button" class="<?php echo $cliente['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+                                        <?php
+                                        if ($cliente['ativo'] == 1) {
+                                            echo "Ativo";
+                                        } else {
+                                            echo "Inativo";
+                                        } ?>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     <?php
@@ -122,5 +122,9 @@ if (isset($_GET['alterarAtivo'])) {
         </div>
 
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+    <script src="assets/js/datatable.js"></script>
 </body>

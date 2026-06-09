@@ -16,21 +16,22 @@ try {
         $senha_hash_banco = $dados['senha'];
 
 
-       if(password_verify($senha, $senha_hash_banco)){
-        
-        //senha correta
-        //iniciar a sessão(troca de dados em páginas diferentes)
-        session_start();
-        //criar uma variável de sessao
-        $_SESSION['logado'] ="sim";
-        
-        header("Location:../dashboard.php");
-       } else {
-        //senha inválida
-        echo "Dados inválidos!";
-       }
+        if (password_verify($senha, $senha_hash_banco)) {
 
+            //senha correta
+            session_start();
 
+            $_SESSION['logado'] = "sim";
+            $_SESSION['id_usuario'] = $dados['id'];
+            $_SESSION['nome'] = $dados['nome'];
+            $_SESSION['email'] = $dados['email'];
+
+            header("Location:../dashboard.php");
+            exit;
+        } else {
+            //senha inválida
+            echo "Dados inválidos!";
+        }
     } else {
         //email inválido
         echo "Dados inválidos!";

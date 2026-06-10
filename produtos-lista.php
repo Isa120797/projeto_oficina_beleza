@@ -44,6 +44,12 @@ if (isset($_GET['alterarAtivo'])) {
     <title>Produtos - Lista</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/produto/produto.css">
+    <link rel="stylesheet" href="assets/css/clientes-lista.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
+
 </head>
 
 <body>
@@ -65,7 +71,7 @@ if (isset($_GET['alterarAtivo'])) {
 
         </div>
         <div class="table-container">
-            <table>
+            <table id="listagem-produto">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -119,6 +125,11 @@ if (isset($_GET['alterarAtivo'])) {
         </div>
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+    <script src="assets/js/datatable.js"></script>
 
 </body>
 

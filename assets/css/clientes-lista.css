@@ -250,3 +250,36 @@ table td:nth-child(9) {
         align-items: flex-start;
     }
 }
+
+/* Cabeçalho da tabela */
+#listagem-cliente thead th {
+    background-color: #d63384 !important;
+    color: white !important;
+    font-weight: 600;
+    border-color: #d63384 !important;
+    padding: 14px 10px;
+}
+
+/* Linha inteira do cabeçalho */
+#listagem-cliente thead {
+    background-color: #d63384 !important;
+}
+
+/* Remove o cinza do Bootstrap */
+.table > :not(caption) > * > * {
+    box-shadow: none !important;
+}
+
+/* Ícones de ordenação do DataTables */
+table.dataTable thead > tr > th.dt-orderable-asc,
+table.dataTable thead > tr > th.dt-orderable-desc,
+table.dataTable thead > tr > th.dt-ordering-asc,
+table.dataTable thead > tr > th.dt-ordering-desc {
+    color: white !important;
+}
+
+/* Setinhas do DataTables */
+table.dataTable thead .dt-column-order {
+    color: white !important;
+    opacity: 1 !important;
+}

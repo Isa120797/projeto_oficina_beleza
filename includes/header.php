@@ -26,6 +26,11 @@
             <a href="pedidos.php">
                 <li>Vendas</li>   
             </a>
+             <a href="vendas.php">
+                <li>Financeiro</li>   
+            </a>
+        
+        
 
             <a href="sair.php">
                 <li>Sair</li>

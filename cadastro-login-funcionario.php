@@ -58,28 +58,28 @@
           <input type="text" name="nome" id="nome" class="form-control" placeholder="Seu nome" required>
         </div>
 
-         <div class="mb-3">
+        <div class="mb-3">
           <label class="form-label">Email</label>
           <input type="email" name="email" id="email" class="form-control" placeholder="Seu email" required>
         </div>
 
- <div class="mb-3">
+        <div class="mb-3">
           <label class="form-label">Senha</label>
           <input type="password" name="senha" id="senha" class="form-control" placeholder="Sua senha" required>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Confirmar Senha</label>
-          <input type="password" name="confirmar" id="confirmar" class="form-control" placeholder="Confirmar senha" required>
+          <label for="confirmar_senha" class="form-label">Confirmar Senha</label>
+          <input type="password" name="confirmar_senha" id="confirmar_senha" class="form-control" placeholder="Confirmar senha" required>
         </div>
 
 
         <button type="submit" class="btn btn-dark w-100">
           Cadastrar
         </button>
-<p class="text-center mt-2">
-    Já tem conta? <a href="login.php">Login</a>
-  </p>
+        <p class="text-center mt-2">
+          Já tem conta? <a href="login.php">Login</a>
+        </p>
       </form>
 
     </div>

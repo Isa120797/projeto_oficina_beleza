@@ -62,13 +62,19 @@
                     <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha" required>
                 </div>
 
-                <div class="text-end mb-3">
-                    <a href="recuperar-senha.php" class="text-decoration-none">Esqueceu sua senha?</a>
-                </div>
+
 
                 <button type="submit" class="btn btn-dark w-100">
                     Entrar
                 </button>
+
+                <div class="text-center mt-3">
+                    <a href="cadastro-login-funcionario.php">Criar conta</a>
+                </div>
+
+                <div class="text-end mb-3">
+                    <a href="recuperar-senha.php" class="text-decoration-none">Esqueceu sua senha?</a>
+                </div>
 
             </form>
 

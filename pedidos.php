@@ -1,3 +1,14 @@
+<?php
+
+require_once 'consulta-clientes.php';
+require_once 'consulta-produtos.php';
+require_once 'consulta-formas-pagamento.php';
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,10 +25,12 @@
 <body>
 
     <?php require_once 'includes/header.php'; ?>
+    <div id="mensagem"></div>
 
     <div class="container-fluid py-4">
 
         <!-- TOPO -->
+
         <div class="topo-venda d-flex justify-content-between align-items-center mb-4">
 
             <div>
@@ -30,8 +43,12 @@
                 </p>
             </div>
 
-            <button class="btn btn-light btn-cancelar">
+            <button
+                id="btn-cancelar-venda"
+                class="btn btn-light btn-cancelar">
+
                 Cancelar Venda
+
             </button>
         </div>
 
@@ -56,8 +73,25 @@
                         <div class="row g-3 align-items-center">
 
                             <div class="col-md-8">
-                                <select class="form-select input-venda">
-                                    <option>Maria Silva</option>
+                                <select
+                                    name="id_cliente"
+                                    id="id_cliente"
+                                    class="form-select">
+
+                                    <option value="">
+                                        Selecione o cliente
+                                    </option>
+
+                                    <?php foreach ($clientes as $cliente): ?>
+
+                                        <option value="<?= $cliente['id'] ?>">
+
+                                            <?= $cliente['nome'] ?>
+
+                                        </option>
+
+                                    <?php endforeach; ?>
+
                                 </select>
                             </div>
 
@@ -71,30 +105,13 @@
                         </div>
 
 
-                        <div class="cliente-info mt-4">
+                        <div
+                            class="cliente-info mt-4"
+                            id="dados-cliente">
 
-                            <div class="d-flex align-items-center gap-3">
-
-                               
-
-                                <div>
-                                    <h5>Maria Silva</h5>
-
-                                    <p>
-                                        
-                                        (11) 98765-4321 &nbsp; • &nbsp;
-                                        maria@email.com
-                                    </p>
-
-                                    <span>
-                                        Endereço: Rua das Flores, 123 - Centro
-                                    </span>
-                                </div>
-
-                            </div>
+                            <h5>Selecione um cliente</h5>
 
                         </div>
-
                     </div>
                 </div>
 
@@ -112,33 +129,37 @@
 
                         <div class="row g-3 mb-4">
 
-                            <select class="form-select input-venda">
-                                <option selected disabled>
+                            <select
+                                id="produto"
+                                class="form-select">
+
+                                <option value="">
                                     Selecione um produto
                                 </option>
 
-                                <option value="1">
-                                    Shampoo
-                                </option>
+                                <?php foreach ($produtos as $produto): ?>
 
-                                <option value="2">
-                                    Condicionador
-                                </option>
+                                    <option
+                                        value="<?= $produto['id'] ?>"
+                                        data-preco="<?= $produto['preco_venda'] ?>"
+                                        data-nome="<?= $produto['nome'] ?>"
+                                        data-estoque="<?= $produto['estoque_atual'] ?>">
 
-                                <option value="3">
-                                    Escova
-                                </option>
+                                        <?= $produto['nome'] ?>
 
-                                <option value="4">
-                                    Secador
-                                </option>
+                                    </option>
+
+                                <?php endforeach; ?>
+
                             </select>
 
                             <div class="col-md-4">
-                                <button class="btn btn-outline-primary w-100 btn-adicionar">
+                                <button class="btn btn-outline-primary w-100 btn-adicionar" id="btn-adicionar-produto">
                                     <i class="fa-solid fa-plus"></i>
                                     Adicionar produto
                                 </button>
+
+
                             </div>
 
                         </div>
@@ -157,59 +178,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <td>
-                                            <div class="produto-info">
-                                                <strong>Shampoo</strong>
-                                                <span>Cód: PROD001</span>
-                                            </div>
-                                        </td>
-
-                                        <td>R$ 59,90</td>
-
-                                        <td>
-                                            <input type="number" value="1" class="form-control quantidade">
-                                        </td>
-
-                                        <td>
-                                            <strong>R$ 59,90</strong>
-                                        </td>
-
-                                        <td>
-                                            <button class="btn btn-danger btn-sm">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            <div class="produto-info">
-                                                <strong>Condicionador</strong>
-                                                <span>Cód: PROD002</span>
-                                            </div>
-                                        </td>
-
-                                        <td>R$ 39,90</td>
-
-                                        <td>
-                                            <input type="number" value="2" class="form-control quantidade">
-                                        </td>
-
-                                        <td>
-                                            <strong>R$ 79,80</strong>
-                                        </td>
-
-                                        <td>
-                                            <button class="btn btn-danger btn-sm">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <tbody id="itens-venda">
 
                                 </tbody>
 
@@ -220,14 +189,20 @@
 
                         <div class="d-flex justify-content-between align-items-center mt-4">
 
-                            <button class="btn btn-outline-secondary">
+                            <button
+                                id="btn-limpar-itens"
+                                class="btn btn-outline-secondary">
+
                                 Limpar itens
+
                             </button>
+                            <h3
+                                class="valor-total"
+                                id="total-venda">
 
-                            <h3 class="valor-total">
-                                Total: R$ 139,70
+                                Total: R$ 0,00
+
                             </h3>
-
                         </div>
 
                     </div>
@@ -250,19 +225,29 @@
 
                         <div class="resumo-item">
                             <span>Subtotal</span>
-                            <strong>R$ 139,70</strong>
+                            <strong id="subtotal">
+                                R$ 0,00
+                            </strong>
                         </div>
 
                         <div class="resumo-item">
                             <span>Desconto</span>
-                            <strong class="text-danger">R$ 0,00</strong>
+                            <strong
+                                class="text-danger"
+                                id="valor-desconto">
+
+                                R$ 0,00
+
+                            </strong>
                         </div>
 
                         <hr>
 
                         <div class="resumo-total">
                             <span>Total</span>
-                            <h2>R$ 139,70</h2>
+                            <h2 id="total-resumo">
+                                R$ 0,00
+                            </h2>
                         </div>
 
                     </div>
@@ -283,24 +268,58 @@
                         <div class="mb-3">
                             <label class="form-label">Forma de pagamento</label>
 
-                            <select class="form-select input-venda">
-                                <option>Pix</option>
-                                <option>Cartão</option>
-                                <option>Dinheiro</option>
+                            <select
+                                name="id_forma_pagamento"
+                                id="id_forma_pagamento"
+                                class="form-select">
+
+                                <?php foreach ($formasPagamento as $forma): ?>
+
+                                    <option value="<?= $forma['id'] ?>">
+
+                                        <?= $forma['nome'] ?>
+
+                                    </option>
+
+                                <?php endforeach; ?>
+
                             </select>
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Desconto (R$)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="desconto"
+                                class="form-control"
+                                value="0"
+                                min="0"
+                                step="0.01"
+                                onchange="atualizarTotal()">
+
                         </div>
 
 
                         <div class="mb-3">
                             <label class="form-label">Observação</label>
 
-                            <textarea class="form-control input-venda" rows="4"></textarea>
+                            <textarea
+                                id="observacao"
+                                class="form-control input-venda"
+                                rows="4">
+                         </textarea>
                         </div>
 
 
-                        <button class="btn btn-success btn-confirmar w-100">
+                        <button
+                            id="confirmar-venda"
+                            class="btn btn-success btn-confirmar w-100">
                             <i class="fa-solid fa-check"></i>
-                            Confirmar venda
+                            Confirmar Venda
                         </button>
 
                     </div>
@@ -311,7 +330,7 @@
         </div>
 
     </div>
-
+    <script src="assets/js/pedidos.js"></script>
 </body>
 
 </html>

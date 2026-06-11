@@ -71,3 +71,84 @@ body {
 }
 
 
+/* ==========================
+   DETALHES DA VENDA
+========================== */
+
+.card-detalhes {
+
+    border: none;
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
+
+    background: #fff;
+}
+
+.titulo-pedido {
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #333;
+}
+
+.info-venda {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+}
+
+.info-item {
+
+    min-width: 220px;
+}
+
+.info-item span {
+
+    display: block;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.info-item strong {
+
+    font-size: 18px;
+
+    color: #333;
+}
+
+.tabela-itens {
+
+    margin-top: 25px;
+}
+
+.tabela-itens thead {
+
+    background: #f8f9fa;
+}
+
+.tabela-itens th {
+
+    font-weight: 600;
+}
+
+.total-geral {
+
+    text-align: right;
+
+    margin-top: 20px;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #198754;
+}

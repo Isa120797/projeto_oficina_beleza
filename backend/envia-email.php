@@ -47,7 +47,7 @@ function enviaEmail($emailDestino, $token)
 </head>
 <body style="margin:0;padding:0;background-color:#f5f7fa;font-family:Arial,Helvetica,sans-serif;">
 
-```
+
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f7fa;padding:40px 20px;">
     <tr>
         <td align="center">
@@ -104,8 +104,6 @@ function enviaEmail($emailDestino, $token)
         </td>
     </tr>
 </table>
-```
-
 </body>
 </html>
 

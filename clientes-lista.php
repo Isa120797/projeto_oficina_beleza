@@ -100,17 +100,31 @@ if (isset($_GET['alterarAtivo'])) {
                             <td><?php echo $cliente['cidade']; ?></td>
                             <td><?php echo $cliente['estado']; ?></td>
                             <td class="acoes">
-                                <a class="table-btn editar" href="editar-clientes.php?id=<?php echo $cliente['id']; ?>">Editar</a>
-                                <a href="?alterarAtivo=<?php echo $cliente['id']; ?>" onclick="return confirm('Deseja alterar?')">
-                                    <button class="table-btn status" type="button" class="<?php echo $cliente['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
-                                        <?php
-                                        if ($cliente['ativo'] == 1) {
-                                            echo "Ativo";
-                                        } else {
-                                            echo "Inativo";
-                                        } ?>
-                                    </button>
+
+                                <a href="historico-clientes.php?id=<?php echo $cliente['id']; ?>"
+                                    class="btn-olho"
+                                    title="Histórico do Cliente">
+                                    <i class="bi bi-eye"></i>
                                 </a>
+
+                                <a class="table-btn editar"
+                                    href="editar-clientes.php?id=<?php echo $cliente['id']; ?>">
+                                    Editar
+                                </a>
+
+                                <a href="?alterarAtivo=<?php echo $cliente['id']; ?>"
+                                    onclick="return confirm('Deseja alterar o status deste cliente?')">
+
+                                    <button
+                                        type="button"
+                                        class="table-btn status <?php echo $cliente['ativo'] == 1 ? 'ativo' : 'inativo'; ?>">
+
+                                        <?php echo $cliente['ativo'] == 1 ? 'Ativo' : 'Inativo'; ?>
+
+                                    </button>
+
+                                </a>
+
                             </td>
                         </tr>
                     <?php

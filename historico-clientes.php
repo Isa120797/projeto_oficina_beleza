@@ -1,10 +1,25 @@
-<!-- <?php
+<?php
 
 require_once 'backend/conexao.php';
+
 try {
+
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM tb_agendamento WHERE id=$id";
+    $sql = "
+        SELECT
+            c.nome,
+            s.nome_servico,
+            a.valor,
+            a.data
+        FROM tb_agendamento a
+        INNER JOIN tb_cliente c
+            ON a.id_cliente = c.id
+        INNER JOIN tb_servico s
+            ON a.id_servico = s.id
+        WHERE a.id_cliente = ?
+        ORDER BY a.data DESC
+    ";
 
     $comando = $conexao->prepare($sql);
 
@@ -12,14 +27,15 @@ try {
 
     $agendamentos = $comando->fetchAll(PDO::FETCH_ASSOC);
 
-    // echo $id;
 } catch (PDOException $erro) {
-    // guarda o erro gerado no log do servidor
+
     error_log($erro->getMessage());
-    // exibe a mensagem de erro
-    echo "Não foi possivel buscar os dados";
+
+    echo "Não foi possível buscar os dados";
 }
-?> -->
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,63 +46,136 @@ try {
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/funcionario/clientes.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- <style>
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background-color: #f8f9fa;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .sem-registro {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #777;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .btn-voltar:hover {
+            background-color: #5a6268;
+        }
+    </style> -->
 
 </head>
 
 <body>
+
+    <?php require_once 'includes/header.php'; ?>
+
     <main>
 
-        <?php require_once 'includes/header.php'; ?>
-
         <div class="container">
+
             <h1 class="titulo-pagina">Histórico do Cliente</h1>
 
-            <div class="table-container">
-                <table>
+            <a href="lista-clientes.php" class="btn-voltar">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Serviço</th>
-                            <th>Valor</th>
-                            <th>Data do Atendimento</th>
-                        </tr>
-                    </thead>
-                    <!-- <?php
-                    foreach ($agendamentos as $agendamento):
-                    ?>
+            <?php if (empty($agendamentos)) : ?>
+
+                <p class="sem-registro">
+                    Este cliente ainda não possui atendimentos cadastrados.
+                </p>
+
+            <?php else : ?>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Serviço</th>
+                                <th>Valor</th>
+                                <th>Data do Atendimento</th>
+                            </tr>
+                        </thead>
+
                         <tbody>
 
-                            <tr>
+                            <?php foreach ($agendamentos as $agendamento) : ?>
 
-                                <td>
-                                    <?= $agendamento['cliente'] ?>
-                                </td>
+                                <tr>
 
-                                <td>
-                                    <?= $agendamento['servico'] ?>
-                                </td>
+                                    <td>
+                                        <?= $agendamento['nome'] ?>
+                                    </td>
 
-                                <td>
-                                    R$ <?= number_format($agendamento['valor'], 2, ',', '.') ?>
-                                </td>
+                                    <td>
+                                        <?= $agendamento['nome_servico'] ?>
+                                    </td>
 
-                                <td>
-                                    <?= date('d/m/Y', strtotime($agendamento['data'])) ?>
-                                </td>
+                                    <td>
+                                        R$ <?= number_format($agendamento['valor'], 2, ',', '.') ?>
+                                    </td>
 
-                            </tr>
+                                    <td>
+                                        <?= date('d/m/Y', strtotime($agendamento['data'])) ?>
+                                    </td>
 
+                                </tr>
+
+                            <?php endforeach; ?>
 
                         </tbody>
-                    <?php
-                    endforeach;
-                    ?>
-                </table>
 
-            </div> -->
+                    </table>
+
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
     </main>
+
 </body>
 
 </html>

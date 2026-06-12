@@ -6,10 +6,10 @@
 // define('SENHA', '');
 // define('BANCO', 'db_oficina_beleza');
 
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
+define('SERVIDOR', '193.203.175.121');
+define('USUARIO', 'u297790137_oficinabeleza');
+define('SENHA', '3I8zh=|Mo');
+define('BANCO', 'u297790137_oficinabeleza');
 
 
 

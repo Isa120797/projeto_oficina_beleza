@@ -1,10 +1,7 @@
 <?php
 
 require_once 'consulta-dashboard.php';
-
 require_once 'backend/verifica-login.php';
-
-
 
 if (!isset($_SESSION['logado'])) {
     header("Location: login.php");
@@ -12,21 +9,14 @@ if (!isset($_SESSION['logado'])) {
 }
 
 $nomeUsuario = $_SESSION['nome'];
-
-
 $partes = explode(' ', $nomeUsuario);
-
 $iniciais = strtoupper(substr($partes[0], 0, 1));
 
 if (count($partes) > 1) {
     $iniciais .= strtoupper(substr($partes[1], 0, 1));
 }
 
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,10 +26,7 @@ if (count($partes) > 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Oficina de Beleza</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
@@ -66,6 +53,7 @@ if (count($partes) > 1) {
             left: 0;
             top: 0;
             padding: 30px 20px;
+            z-index: 1000;
         }
 
         .logo {
@@ -282,17 +270,86 @@ if (count($partes) > 1) {
         }
 
         /* =========================
+            OFF-CANVAS MOBILE
+        ==========================*/
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.45);
+            z-index: 999;
+        }
+
+        .overlay.ativo {
+            display: block;
+        }
+
+        .btn-hamburguer {
+            background: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 18px;
+            color: #d63384;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .btn-fechar-menu {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-left: auto;
+        }
+
+        /* =========================
             RESPONSIVO
         ==========================*/
 
-        @media(max-width: 992px) {
+        @media (max-width: 992px) {
 
             .sidebar {
-                display: none;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.aberta {
+                transform: translateX(0);
             }
 
             .conteudo {
                 margin-left: 0;
+            }
+
+            .btn-hamburguer {
+                display: flex;
+            }
+
+            .btn-fechar-menu {
+                display: flex;
+            }
+
+            .titulo-dashboard h1 {
+                font-size: 24px;
+            }
+
+            .titulo-dashboard p {
+                font-size: 14px;
             }
 
         }
@@ -301,9 +358,16 @@ if (count($partes) > 1) {
 
 <body>
 
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
     <!-- SIDEBAR -->
 
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <button class="btn-fechar-menu" id="btnFecharMenu" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
 
         <div class="logo">
             Oficina de Beleza
@@ -366,12 +430,14 @@ if (count($partes) > 1) {
                     Configurações
                 </a>
             </li>
+
             <li>
                 <a href="sair.php">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Sair
                 </a>
             </li>
+
         </ul>
 
     </aside>
@@ -384,11 +450,13 @@ if (count($partes) > 1) {
 
         <div class="topo">
 
+            <button class="btn-hamburguer" id="btnAbrirMenu" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
             <div class="titulo-dashboard">
                 <h1>Olá, <?= $nomeUsuario ?> 👋</h1>
-                <p>
-                    Bem-vinda ao painel da Oficina de Beleza
-                </p>
+                <p>Bem-vinda ao painel da Oficina de Beleza</p>
             </div>
 
             <div class="perfil">
@@ -398,9 +466,7 @@ if (count($partes) > 1) {
                 </div>
 
                 <div class="avatar">
-                    <div class="avatar">
-                        <?= $iniciais ?>
-                    </div>
+                    <?= $iniciais ?>
                 </div>
 
             </div>
@@ -412,82 +478,43 @@ if (count($partes) > 1) {
         <div class="row g-4 mb-4">
 
             <div class="col-md-6 col-xl-3">
-
                 <div class="card-dashboard bg-white">
-
                     <div class="icone-card bg-clientes">
                         <i class="fa-solid fa-users"></i>
                     </div>
-                    <div class="numero-card">
-                        <?= $totalClientes['total'] ?>
-                    </div>
-
-                    <div class="texto-card">
-                        Clientes cadastrados
-                    </div>
-
+                    <div class="numero-card"><?= $totalClientes['total'] ?></div>
+                    <div class="texto-card">Clientes cadastrados</div>
                 </div>
-
             </div>
 
             <div class="col-md-6 col-xl-3">
-
                 <div class="card-dashboard bg-white">
-
                     <div class="icone-card bg-agenda">
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
-
-                    <div class="numero-card">
-                        <?= $totalAgendamentos['total'] ?>
-                    </div>
-
-                    <div class="texto-card">
-                        Agendamentos hoje
-                    </div>
-
+                    <div class="numero-card"><?= $totalAgendamentos['total'] ?></div>
+                    <div class="texto-card">Agendamentos hoje</div>
                 </div>
-
             </div>
 
             <div class="col-md-6 col-xl-3">
-
                 <div class="card-dashboard bg-white">
-
                     <div class="icone-card bg-vendas">
                         <i class="fa-solid fa-dollar-sign"></i>
                     </div>
-
-                    <div class="numero-card">
-                        R$ <?= number_format($faturamentoDia['total'], 2, ',', '.') ?>
-                    </div>
-
-                    <div class="texto-card">
-                        Faturamento do dia
-                    </div>
-
+                    <div class="numero-card">R$ <?= number_format($faturamentoDia['total'], 2, ',', '.') ?></div>
+                    <div class="texto-card">Faturamento do dia</div>
                 </div>
-
             </div>
 
             <div class="col-md-6 col-xl-3">
-
                 <div class="card-dashboard bg-white">
-
                     <div class="icone-card bg-produtos">
                         <i class="fa-solid fa-box"></i>
                     </div>
-
-                    <div class="numero-card">
-                        <?= number_format($totalEstoque['total'], 0, ',', '.') ?>
-                    </div>
-
-                    <div class="texto-card">
-                        Produtos em estoque
-                    </div>
-
+                    <div class="numero-card"><?= number_format($totalEstoque['total'], 0, ',', '.') ?></div>
+                    <div class="texto-card">Produtos em estoque</div>
                 </div>
-
             </div>
 
         </div>
@@ -499,95 +526,91 @@ if (count($partes) > 1) {
             <!-- AGENDA -->
 
             <div class="col-lg-8">
-
                 <div class="card-tabela">
 
-                    <h3 class="titulo-secao">
-                        Agenda do Dia
-                    </h3>
+                    <h3 class="titulo-secao">Agenda do Dia</h3>
 
                     <table>
-
                         <thead>
-
                             <tr>
                                 <th>Horário</th>
                                 <th>Cliente</th>
                                 <th>Serviço</th>
                                 <th>Funcionário</th>
                             </tr>
-
                         </thead>
-
                         <tbody>
-
                             <?php if (!empty($agenda)): ?>
-
                                 <?php foreach ($agenda as $item): ?>
-
                                     <tr>
                                         <td><?= date('H:i', strtotime($item['hora'])) ?></td>
                                         <td><?= $item['cliente'] ?></td>
                                         <td><?= $item['nome_servico'] ?></td>
                                         <td><?= $item['funcionario'] ?></td>
                                     </tr>
-
                                 <?php endforeach; ?>
-
                             <?php else: ?>
-
                                 <tr>
-                                    <td colspan="4" class="text-center">
-                                        Nenhum agendamento encontrado.
-                                    </td>
+                                    <td colspan="4" class="text-center">Nenhum agendamento encontrado.</td>
                                 </tr>
-
                             <?php endif; ?>
-
                         </tbody>
-
                     </table>
 
                 </div>
-
             </div>
 
             <!-- META -->
 
             <div class="col-lg-4">
-
                 <div class="meta">
 
-                    <h3>
-                        Meta do mês
-                    </h3>
+                    <h3>Meta do mês</h3>
 
                     <h1 class="mt-4">
                         R$ <?= number_format($metaMes, 2, ',', '.') ?>
                     </h1>
 
-                    <p>
-                        <?= round($percentualMeta) ?>% da meta concluída
-                    </p>
+                    <p><?= round($percentualMeta) ?>% da meta concluída</p>
 
                     <div class="barra">
-                        <div
-                            class="progresso"
-                            style="width: <?= $percentualMeta ?>%;">
-                        </div>
+                        <div class="progresso" style="width: <?= $percentualMeta ?>%;"></div>
                     </div>
 
-                    <div class="mt-4">
-                        Continue assim 🚀
-                    </div>
+                    <div class="mt-4">Continue assim 🚀</div>
 
                 </div>
-
             </div>
 
         </div>
 
     </main>
+
+    <script>
+        const sidebar    = document.getElementById('sidebar');
+        const overlay    = document.getElementById('overlay');
+        const btnAbrir   = document.getElementById('btnAbrirMenu');
+        const btnFechar  = document.getElementById('btnFecharMenu');
+        const linksMenu  = sidebar.querySelectorAll('.menu a');
+
+        function abrirMenu() {
+            sidebar.classList.add('aberta');
+            overlay.classList.add('ativo');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharMenu() {
+            sidebar.classList.remove('aberta');
+            overlay.classList.remove('ativo');
+            document.body.style.overflow = '';
+        }
+
+        btnAbrir.addEventListener('click', abrirMenu);
+        btnFechar.addEventListener('click', fecharMenu);
+        overlay.addEventListener('click', fecharMenu);
+
+        linksMenu.forEach(link => link.addEventListener('click', fecharMenu));
+    </script>
 
 </body>
 

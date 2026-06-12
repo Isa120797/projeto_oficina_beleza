@@ -2,7 +2,9 @@
 
 require_once 'consulta-dashboard.php';
 
-session_start();
+require_once 'backend/verifica-login.php';
+
+
 
 if (!isset($_SESSION['logado'])) {
     header("Location: login.php");

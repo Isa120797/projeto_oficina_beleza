@@ -1,5 +1,5 @@
 <?php
-
+require_once 'backend/verifica-login.php';
 require_once 'backend/conexao.php';
 
 try {
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <h1 class="titulo-pagina">Histórico do Cliente</h1>
 
-            <a href="lista-clientes.php" class="btn-voltar">
+            <a href="clientes-lista.php" class="btn-voltar">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
             <div class="card-observacao">

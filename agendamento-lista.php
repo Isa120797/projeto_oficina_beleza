@@ -2,7 +2,7 @@
 
 //conexao do PHP com o banco de dados MYSQL
 
-
+require_once 'backend/verifica-login.php';
 require_once 'backend/funcoes.php';
 $agendamentos = listarAgendamento();
 

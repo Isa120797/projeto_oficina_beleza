@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -49,6 +54,16 @@
     <div class="card card-login shadow-lg p-4" style="width: 350px;">
 
       <h5 class="text-center mb-3">Cadastro Login-Funcionário</h5>
+
+      <?php if (isset($_SESSION['erro_cadastro'])) : ?>
+
+  <div class="alert alert-danger text-center">
+    <?= $_SESSION['erro_cadastro']; ?>
+  </div>
+
+  <?php unset($_SESSION['erro_cadastro']); ?>
+
+<?php endif; ?>
 
       <form action="backend/cadastrar-login.php" method="POST">
 

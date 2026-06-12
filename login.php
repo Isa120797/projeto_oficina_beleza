@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Tela de Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,9 +53,9 @@
 
             <h5 class="text-center mb-3">Login</h5>
 
-          <?php if (isset($_GET['erro']) && $_GET['erro'] == 1) : ?>
+            <?php if (isset($_GET['erro']) && $_GET['erro'] == 1) : ?>
 
-    <div id="mensagemErro" style="
+                <div id="mensagemErro" style="
         background-color: #ffe6f0;
         color: #d63384;
         border: 1px solid #d63384;
@@ -64,16 +65,16 @@
         margin-bottom: 15px;
         font-weight: bold;
     ">
-        E-mail ou senha inválidos!
-    </div>
+                    E-mail ou senha inválidos!
+                </div>
 
-    <script>
-        setTimeout(function() {
-            document.getElementById('mensagemErro').style.display = 'none';
-        }, 3000);
-    </script>
+                <script>
+                    setTimeout(function() {
+                        document.getElementById('mensagemErro').style.display = 'none';
+                    }, 3000);
+                </script>
 
-<?php endif; ?>
+            <?php endif; ?>
 
             <form action="backend/valida-login.php" method="post">
 

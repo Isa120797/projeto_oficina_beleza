@@ -59,15 +59,7 @@ if (isset($_GET['alterarAtivo'])) {
         <h1 class="titulo-pagina">Produtos</h1>
         <div class="top-actions">
 
-            <div class="search-box">
-                <input type="text" placeholder="Buscar por nome">
-                <button class="btn buscar">Buscar</button>
-            </div>
 
-            <div class="action-buttons">
-                <a href="produtos.php" class="btn">Cadastrar</a>
-
-            </div>
 
         </div>
         <div class="table-container">
@@ -86,11 +78,12 @@ if (isset($_GET['alterarAtivo'])) {
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <?php
-                foreach ($produtos as $produto):
-                ?>
 
-                    <tbody>
+
+                <tbody>
+                    <?php
+                    foreach ($produtos as $produto):
+                    ?>
                         <tr>
                             <td><?php echo $produto['id']; ?></td>
                             <td><?php echo $produto['nome']; ?></td>
@@ -117,10 +110,11 @@ if (isset($_GET['alterarAtivo'])) {
                                 </a>
                             </td>
                         </tr>
-                    </tbody>
-                <?php
-                endforeach;
-                ?>
+                    <?php
+                    endforeach;
+                    ?>
+                </tbody>
+
             </table>
         </div>
 

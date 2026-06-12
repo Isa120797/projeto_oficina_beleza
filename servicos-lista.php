@@ -81,11 +81,12 @@ if (isset($_GET['alterarAtivo'])) {
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <?php
-                foreach ($servicos as $servico):
-                ?>
 
-                    <tbody>
+
+                <tbody>
+                    <?php
+                    foreach ($servicos as $servico):
+                    ?>
                         <tr>
                             <td><?php echo $servico['id']; ?></td>
                             <td><?php echo $servico['categoria']; ?></td>
@@ -111,10 +112,11 @@ if (isset($_GET['alterarAtivo'])) {
                                 <!-- <a href="#" class="table-btn status">Ativar/Inativar</a> -->
                             </td>
                         </tr>
-                    </tbody>
-                <?php
-                endforeach;
-                ?>
+                    <?php
+                    endforeach;
+                    ?>
+                </tbody>
+
             </table>
         </div>
 

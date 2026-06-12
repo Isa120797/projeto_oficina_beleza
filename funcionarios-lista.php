@@ -75,11 +75,12 @@ if (isset($_GET['alterarAtivo'])) {
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <?php
-                foreach ($funcionarios as $funcionario):
-                ?>
 
-                    <tbody>
+                <tbody>
+                    <?php
+                    foreach ($funcionarios as $funcionario):
+                    ?>
+
                         <tr>
                             <td><?php echo $funcionario['id']; ?></td>
                             <td><?php echo $funcionario['nome']; ?></td>
@@ -105,10 +106,11 @@ if (isset($_GET['alterarAtivo'])) {
 
                             </td>
                         </tr>
-                    </tbody>
-                <?php
-                endforeach;
-                ?>
+                    <?php
+                    endforeach;
+                    ?>
+                </tbody>
+
             </table>
         </div>
 

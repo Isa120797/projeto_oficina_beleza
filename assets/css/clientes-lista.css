@@ -283,3 +283,28 @@ table.dataTable thead .dt-column-order {
     color: white !important;
     opacity: 1 !important;
 }
+
+/* css da função ação da tela clientes-lista*/
+
+
+
+.btn-olho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+}
+
+.btn-olho i {
+    font-size: 18px;
+    color: #fd0da19d;
+}
+
+.btn-olho:hover {
+    background-color: #e9ecef;
+}

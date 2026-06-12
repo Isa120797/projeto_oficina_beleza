@@ -228,11 +228,14 @@ table.dataTable thead th {
 .dt-length select {
     width: 75px;
     min-width: 75px;
-    padding: 6px 10px;
+    padding: 6px 30px 6px 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background: #fff;
+    background-color: #fff;
     text-align: center;
+    appearance: auto;
+    -webkit-appearance: menulist;
+    -moz-appearance: menulist;
 }
 
 /* Texto info */

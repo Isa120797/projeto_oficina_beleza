@@ -1,3 +1,13 @@
+<?php
+// captura o token do link do e-mail enviado
+$token = $_GET['token'];
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -48,20 +58,24 @@
     <!-- FORMULÁRIO -->
     <div class="card card-login shadow-lg p-4" style="width: 350px;">
 
-      <h5 class="text-center mb-3">Recuperar Senha</h5>
+      <h5 class="text-center mb-3">Nova Senha</h5>
 
-      <form action="backend/recuperar-senha.php" method="POST">
+      <form action="backend/nova-senha.php?token=<?php echo $token ?>" method="post">
 
 
         <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" id="email" class="form-control" placeholder="Seu email" required>
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" name="senha" id="senha" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmar" class="form-label">Confirmar Senha</label>
+          <input type="password" name="confirmar" id="confirmar" class="form-control" required>
         </div>
 
 
 
         <button type="submit" class="btn btn-dark w-100">
-          Recuperar
+          Enviar
         </button>
 
       </form>

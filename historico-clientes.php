@@ -9,6 +9,7 @@ try {
     $sql = "
         SELECT
             c.nome,
+            c.observacao,
             s.nome_servico,
             a.valor,
             a.data
@@ -26,12 +27,27 @@ try {
     $comando->execute([$id]);
 
     $agendamentos = $comando->fetchAll(PDO::FETCH_ASSOC);
-
 } catch (PDOException $erro) {
 
     error_log($erro->getMessage());
 
     echo "Não foi possível buscar os dados";
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $observacao = $_POST['observacao'];
+
+    $sql = "
+        UPDATE tb_cliente
+        SET observacao = ?
+        WHERE id = ?
+    ";
+
+    $comando = $conexao->prepare($sql);
+    $comando->execute([$observacao, $id]);
+
+    header("Location: historico-clientes.php?id=$id");
+    exit;
 }
 
 ?>
@@ -49,58 +65,6 @@ try {
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- <style>
-        .table-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table thead {
-            background-color: #f8f9fa;
-        }
-
-        table th,
-        table td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        table tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .sem-registro {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
-            color: #777;
-        }
-
-        .btn-voltar {
-            display: inline-block;
-            margin-top: 15px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            background-color: #6c757d;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .btn-voltar:hover {
-            background-color: #5a6268;
-        }
-    </style> -->
-
 </head>
 
 <body>
@@ -116,6 +80,24 @@ try {
             <a href="lista-clientes.php" class="btn-voltar">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
+            <div class="card-observacao">
+
+                <h2>Observações do Cliente</h2>
+
+                <form method="POST">
+
+                    <textarea
+                        name="observacao"
+                        rows="5"
+                        placeholder="Digite observações sobre o cliente..."><?= $agendamentos[0]['observacao'] ?? '' ?></textarea>
+
+                    <button type="submit" class="btn-salvar">
+                        Salvar Observação
+                    </button>
+
+                </form>
+
+            </div>
 
             <?php if (empty($agendamentos)) : ?>
 
@@ -132,6 +114,7 @@ try {
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                    
                                 <th>Serviço</th>
                                 <th>Valor</th>
                                 <th>Data do Atendimento</th>
@@ -147,6 +130,8 @@ try {
                                     <td>
                                         <?= $agendamento['nome'] ?>
                                     </td>
+
+                                   
 
                                     <td>
                                         <?= $agendamento['nome_servico'] ?>

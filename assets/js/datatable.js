@@ -121,18 +121,19 @@ new DataTable('#listagem-servico', {
     }
 });
 
+
+
 new DataTable('#listagem-produto', {
+    autoWidth: false,
+    responsive: true,
+
     language: {
-        url: 'https://cdn.datatables.net/plug-ins/2.3.8/i18n/pt-BR.json',
-        entries: {
-            _: 'pessoas',
-            1: 'pessoa'
-        }
+        url: 'https://cdn.datatables.net/plug-ins/2.3.8/i18n/pt-BR.json'
     },
 
     initComplete: function () {
 
-        const filtro = document.querySelector('.dt-search');
+        const filtro = document.querySelector('#listagem-produto_wrapper .dt-search');
 
         if (filtro) {
 
@@ -148,5 +149,3 @@ new DataTable('#listagem-produto', {
         }
     }
 });
-
-

@@ -2,23 +2,23 @@
 require_once 'conexao.php';
 
 try {
-    $email      = $_POST['email'];
-    $senha      = $_POST['senha'];
 
-    $sql = "SELECT * FROM tb_login WHERE  email = '$email'";
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql = "SELECT * FROM tb_login WHERE email = ?";
+
     $comando = $conexao->prepare($sql);
-    $comando->execute();
+    $comando->execute([$email]);
+
     $dados = $comando->fetch(PDO::FETCH_ASSOC);
 
-
     if ($dados != null) {
-        //armazena o hash da senha que está no banco de dados
-        $senha_hash_banco = $dados['senha'];
 
+        $senha_hash_banco = $dados['senha'];
 
         if (password_verify($senha, $senha_hash_banco)) {
 
-            //senha correta
             session_start();
 
             $_SESSION['logado'] = "sim";
@@ -26,19 +26,27 @@ try {
             $_SESSION['nome'] = $dados['nome'];
             $_SESSION['email'] = $dados['email'];
 
-            header("Location:../dashboard.php");
+            header("Location: ../dashboard.php");
             exit;
+
         } else {
-            //senha inválida
-            echo "Dados inválidos!";
+
+            header("Location: ../login.php?erro=1");
+            exit;
+
         }
+
     } else {
-        //email inválido
-        echo "Dados inválidos!";
+
+        header("Location: ../login.php?erro=1");
+        exit;
+
     }
+
 } catch (PDOException $erro) {
-    //guarda o erro gerado no log do servidor
+
     error_log($erro->getMessage());
-    //exibe a mensagem de erro
-    echo "Não foi possível cadastrar";
+
+    header("Location: ../login.php?erro=2");
+    exit;
 }

@@ -3,6 +3,8 @@
 //conexao do PHP com o banco de dados MYSQL
 
 require_once 'backend/funcoes.php';
+
+require_once 'backend/verifica-login.php';
 //string de conexao usando PDO
 try {
     $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO . ";charset=utf8", USUARIO, SENHA);

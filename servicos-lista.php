@@ -1,7 +1,7 @@
 <?php
 //incluir o arquivo de conexao
 // require_once 'backend/conexao.php';
-
+require_once 'backend/verifica-login.php';
 require_once 'backend/funcoes.php';
 //string de conexao usando PDO
 

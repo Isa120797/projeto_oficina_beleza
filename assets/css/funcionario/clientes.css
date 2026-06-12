@@ -196,3 +196,64 @@ table tbody tr:hover {
     font-size: 28px;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+.card-observacao {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.card-observacao h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card-observacao textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 15px;
+}
+
+.btn-salvar {
+    margin-top: 15px;
+    background: #d63384;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-salvar:hover {
+    background: #bb2d73;
+}
+
+.btn-voltar {
+    display: inline-block;
+    background-color: #d63384;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+    background-color: #bb2d73;
+    color: white;
+}

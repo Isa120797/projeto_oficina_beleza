@@ -1,4 +1,5 @@
 <?php
+require_once 'backend/verifica-login.php';
 
 require_once 'consulta-clientes.php';
 require_once 'consulta-produtos.php';

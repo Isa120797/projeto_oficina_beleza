@@ -51,32 +51,58 @@
 
 
             <h5 class="text-center mb-3">Login</h5>
+
+          <?php if (isset($_GET['erro']) && $_GET['erro'] == 1) : ?>
+
+    <div id="mensagemErro" style="
+        background-color: #ffe6f0;
+        color: #d63384;
+        border: 1px solid #d63384;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+    ">
+        E-mail ou senha inválidos!
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('mensagemErro').style.display = 'none';
+        }, 3000);
+    </script>
+
+<?php endif; ?>
+
             <form action="backend/valida-login.php" method="post">
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Seu email" required>
-                </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Senha</label>
-                    <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha" required>
-                </div>
+                <form action="backend/valida-login.php" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Seu email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Senha</label>
+                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha" required>
+                    </div>
 
 
 
-                <button type="submit" class="btn btn-dark w-100">
-                    Entrar
-                </button>
+                    <button type="submit" class="btn btn-dark w-100">
+                        Entrar
+                    </button>
 
-                <div class="text-center mt-3">
-                    <a href="cadastro-login-funcionario.php">Criar conta</a>
-                </div>
+                    <div class="text-center mt-3">
+                        <a href="cadastro-login-funcionario.php">Criar conta</a>
+                    </div>
 
-                <div class="text-end mb-3">
-                    <a href="recuperar-senha.php" class="text-decoration-none">Esqueceu sua senha?</a>
-                </div>
+                    <div class="text-end mb-3">
+                        <a href="recuperar-senha.php" class="text-decoration-none">Esqueceu sua senha?</a>
+                    </div>
 
-            </form>
+                </form>
 
         </div>
 

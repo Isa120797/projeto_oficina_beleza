@@ -1,11 +1,7 @@
 <?php
 
 //conexão do PHP com o banco de dados
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('BANCO', 'db_oficina_beleza');
-
+require_once 'conexao.php'
 //string de conexão usando PDO
 try {
 

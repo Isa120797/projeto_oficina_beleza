@@ -78,6 +78,12 @@ $token = $_GET['token'];
           Enviar
         </button>
 
+        <div class="text-center mt-3">
+          <a href="login.php" style="color: #d63384; font-weight:bold; text-decoration:none;">
+            ← Voltar para o Login
+          </a>
+        </div>
+
       </form>
 
     </div>

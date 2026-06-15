@@ -53,7 +53,7 @@ HTML;
 
         // Enviar
         if ($mail->send()) {
-            echo "E-mail enviado com sucesso!";
+           
         } else {
             echo "Erro ao enviar: " . $mail->ErrorInfo;
         }

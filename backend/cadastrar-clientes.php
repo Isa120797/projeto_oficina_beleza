@@ -1,7 +1,7 @@
 <?php
 
 //conexão do PHP com o banco de dados
-require_once 'conexao.php'
+require_once 'conexao.php';
 //string de conexão usando PDO
 try {
 
